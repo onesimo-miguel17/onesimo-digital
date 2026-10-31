@@ -72,7 +72,7 @@ export default function Home() {
               </div>
               <div className="art-satellite satellite-one"><span className="satellite-icon">✳</span><span><b>DESIGN</b><small>Made to matter.</small></span></div>
               <div className="art-satellite satellite-two"><span className="satellite-icon">⌘</span><span><b>TECHNOLOGY</b><small>Built to evolve.</small></span></div>
-              <div className="art-coordinate coordinate-one">08°50' S<br />13°14' E</div>
+              <div className="art-coordinate coordinate-one">08°50&apos; S<br />13°14&apos; E</div>
               <div className="art-coordinate coordinate-two">EST. / 2026</div>
               <span className="art-particle particle-one" />
               <span className="art-particle particle-two" />
