@@ -1,0 +1,35 @@
+"use client";
+
+import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
+import { useLanguage } from "@/components/language-provider";
+
+export default function TermsPage() {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const tr = (pt: string, english: string) => en ? english : pt;
+
+  return (
+    <>
+      <SiteHeader />
+      <main className="min-h-screen pt-36 pb-24">
+        <article className="container-shell max-w-4xl">
+          <p className="section-overline">{tr("INFORMAÇÃO LEGAL","LEGAL INFORMATION")}</p>
+          <h1 className="section-heading mt-5">{tr("Termos de ","")}<span className="gold-text">{tr("Utilização","Website Terms")}</span></h1>
+          <p className="mt-5 text-xs text-white/40">{tr("Última actualização: 1 de Novembro de 2026","Last updated: 1 November 2026")}</p>
+          <div className="mt-12 space-y-9 text-sm leading-8 text-white/65">
+            <section><h2 className="mb-3 text-lg text-white">{tr("1. Aceitação e âmbito","1. Acceptance and scope")}</h2><p>{tr("Estes termos regulam a utilização do website Onésimo Digital. Ao navegar no website, o utilizador compromete-se a utilizá-lo de forma lícita, responsável e sem prejudicar a disponibilidade, segurança ou funcionamento dos serviços.","These terms govern the use of the Onésimo Digital website. By browsing the website, users agree to use it lawfully and responsibly, without compromising the availability, security or operation of the services.")}</p></section>
+            <section><h2 className="mb-3 text-lg text-white">{tr("2. Informação e demonstrações","2. Information and demos")}</h2><p>{tr("Os conteúdos destinam-se a apresentar a abordagem, as áreas de serviço e conceitos de produtos digitais. As demonstrações Compra Certa, Meu Negócio, Marque Já e Minha Marca são experiências ilustrativas, com dados fictícios e funcionalidades simuladas. Não representam serviços transaccionais, sistemas clínicos, pagamentos ou projectos executados para clientes.","Content is provided to present the studio's approach, service areas and digital product concepts. Compra Certa, Meu Negócio, Marque Já and Minha Marca are illustrative experiences using fictional data and simulated functionality. They are not transactional services, clinical systems, payment systems or projects delivered to clients.")}</p></section>
+            <section><h2 className="mb-3 text-lg text-white">{tr("3. Pedidos e propostas","3. Enquiries and proposals")}</h2><p>{tr("O envio de um pedido através do formulário não constitui aceitação de trabalho, orçamento vinculativo ou contrato. Qualquer serviço dependerá de análise do âmbito, disponibilidade, proposta escrita e aceitação expressa das condições acordadas pelas partes.","Submitting an enquiry through the form does not constitute acceptance of work, a binding quotation or a contract. Any service is subject to scope review, availability, a written proposal and express acceptance of the agreed terms by the parties.")}</p></section>
+            <section><h2 className="mb-3 text-lg text-white">{tr("4. Preços e pagamentos","4. Pricing and payments")}</h2><p>{tr("Salvo indicação expressa numa proposta formal, o website não publica preços vinculativos nem permite efectuar compras ou pagamentos. Valores, prazos, entregáveis, revisões e condições de pagamento serão definidos individualmente em documento próprio.","Unless expressly stated in a formal proposal, the website does not publish binding prices or enable purchases or payments. Fees, timelines, deliverables, revisions and payment terms will be defined individually in a separate document.")}</p></section>
+            <section><h2 className="mb-3 text-lg text-white">{tr("5. Propriedade intelectual","5. Intellectual property")}</h2><p>{tr("Os elementos de identidade, textos, composição visual, código e materiais originais deste website são protegidos pelas regras aplicáveis de propriedade intelectual. Não é permitida a sua reprodução, distribuição ou utilização comercial sem autorização prévia, excepto nos casos permitidos por lei. Marcas de terceiros pertencem aos respectivos titulares.","The identity elements, copy, visual composition, code and original materials on this website are protected by applicable intellectual property rules. Reproduction, distribution or commercial use without prior permission is not allowed, except where permitted by law. Third-party trademarks remain the property of their respective owners.")}</p></section>
+            <section><h2 className="mb-3 text-lg text-white">{tr("6. Utilização proibida","6. Prohibited use")}</h2><p>{tr("O utilizador não deve tentar aceder a áreas não autorizadas, introduzir código malicioso, submeter informação falsa ou utilizar o website para fins ilícitos, fraudulentos ou que violem direitos de terceiros.","Users must not attempt to access unauthorised areas, introduce malicious code, submit false information or use the website for unlawful, fraudulent purposes or in ways that violate third-party rights.")}</p></section>
+            <section><h2 className="mb-3 text-lg text-white">{tr("7. Disponibilidade e responsabilidade","7. Availability and liability")}</h2><p>{tr("Procuramos manter a informação correcta e o website disponível, mas não garantimos funcionamento ininterrupto, ausência de erros ou adequação dos conteúdos a uma situação específica. Na máxima medida permitida por lei, não assumimos responsabilidade por danos indirectos decorrentes da utilização ou impossibilidade de utilização do website. Nada nestes termos exclui responsabilidades que não possam ser excluídas por lei.","We aim to keep information accurate and the website available, but do not guarantee uninterrupted operation, error-free content or suitability for a particular situation. To the maximum extent permitted by law, we are not liable for indirect losses arising from use of, or inability to use, the website. Nothing in these terms excludes liability that cannot legally be excluded.")}</p></section>
+            <section><h2 className="mb-3 text-lg text-white">{tr("8. Alterações e lei aplicável","8. Changes and governing law")}</h2><p>{tr("Estes termos podem ser actualizados quando necessário. A utilização do website e qualquer questão não resolvida por estes termos serão apreciadas à luz da legislação aplicável da República de Angola, sem prejuízo de normas imperativas que possam ser aplicáveis noutros territórios.","These terms may be updated when necessary. Use of the website and any matter not resolved by these terms will be considered under the applicable laws of the Republic of Angola, without prejudice to mandatory rules that may apply in other territories.")}</p></section>
+          </div>
+          <div className="mt-14 border-t border-white/10 pt-7"><Link href="/contactos" className="text-xs font-bold tracking-[.15em] text-[#d6b56d]">{tr("CONTACTAR A ONÉSIMO DIGITAL","CONTACT ONÉSIMO DIGITAL")} ↗</Link></div>
+        </article>
+      </main>
+    </>
+  );
+}
