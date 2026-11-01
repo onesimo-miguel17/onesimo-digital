@@ -20,9 +20,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
   <html lang="pt-AO" data-scroll-behavior="smooth">
     <body>
-      <LanguageProvider>{children}</LanguageProvider>
+      <LanguageProvider>
+        {children}
+        <GoogleAnalytics />
+      </LanguageProvider>
       <Analytics />
-      <GoogleAnalytics />
     </body>
   </html>
 );
