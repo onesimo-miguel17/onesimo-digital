@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { useLanguage } from "@/components/language-provider";
 
 type AnalyticsConsent = "unknown" | "granted" | "denied";
@@ -18,6 +18,24 @@ declare global {
 const CONSENT_KEY = "od-analytics-consent";
 const MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
+function subscribeToConsent(onStoreChange: () => void) {
+  window.addEventListener("od-analytics-consent-change", onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+  return () => {
+    window.removeEventListener("od-analytics-consent-change", onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
+
+function getConsentSnapshot(): AnalyticsConsent {
+  const saved = window.localStorage.getItem(CONSENT_KEY);
+  return saved === "granted" || saved === "denied" ? saved : "unknown";
+}
+
+function getServerConsentSnapshot(): AnalyticsConsent {
+  return "unknown";
+}
+
 export function trackAnalyticsEvent(eventName: string, params: AnalyticsParams = {}) {
   if (typeof window === "undefined" || !MEASUREMENT_ID) return;
   if (window.localStorage.getItem(CONSENT_KEY) !== "granted") return;
@@ -27,20 +45,14 @@ export function trackAnalyticsEvent(eventName: string, params: AnalyticsParams =
 export function GoogleAnalytics() {
   const pathname = usePathname();
   const { language } = useLanguage();
-  const [consent, setConsent] = useState<AnalyticsConsent>("unknown");
-  const [bannerOpen, setBannerOpen] = useState(false);
+  const consent = useSyncExternalStore(subscribeToConsent, getConsentSnapshot, getServerConsentSnapshot);
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
   const [tagReady, setTagReady] = useState(false);
+  const bannerOpen = preferencesOpen || consent === "unknown";
   const english = language === "en";
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(CONSENT_KEY);
-    if (saved === "granted" || saved === "denied") {
-      setConsent(saved);
-    } else {
-      setBannerOpen(true);
-    }
-
-    const openPreferences = () => setBannerOpen(true);
+    const openPreferences = () => setPreferencesOpen(true);
     window.addEventListener("od-open-analytics-preferences", openPreferences);
     return () => window.removeEventListener("od-open-analytics-preferences", openPreferences);
   }, []);
@@ -72,8 +84,8 @@ export function GoogleAnalytics() {
 
   function chooseConsent(nextConsent: Exclude<AnalyticsConsent, "unknown">) {
     window.localStorage.setItem(CONSENT_KEY, nextConsent);
-    setConsent(nextConsent);
-    setBannerOpen(false);
+    window.dispatchEvent(new Event("od-analytics-consent-change"));
+    setPreferencesOpen(false);
   }
 
   if (!MEASUREMENT_ID) return null;
