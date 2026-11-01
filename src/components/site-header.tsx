@@ -32,7 +32,7 @@ export function SiteHeader() {
             <span aria-hidden="true">/</span>
             <button type="button" onClick={() => setLanguage("en")} aria-pressed={english} className={english ? "active" : ""}>EN</button>
           </div>
-          <Link href="/#contacto" className="header-cta hidden border border-[#d6b56d]/70 px-5 py-3 text-[10px] font-bold tracking-[.14em] text-[#e7ca8a] transition lg:inline-flex">{english ? "START A PROJECT" : "INICIAR PROJECTO"} <span className="ml-3">↗</span></Link>
+          <Link href="/contactos" className="header-cta hidden border border-[#d6b56d]/70 px-5 py-3 text-[10px] font-bold tracking-[.14em] text-[#e7ca8a] transition lg:inline-flex">{english ? "START A PROJECT" : "INICIAR PROJECTO"} <span className="ml-3">↗</span></Link>
           <button type="button" aria-label={open ? (english ? "Close menu" : "Fechar menu") : (english ? "Open menu" : "Abrir menu")} aria-expanded={open} onClick={() => setOpen(!open)} className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] border border-white/15 md:hidden">
             <span className={"h-px w-4 bg-white transition " + (open ? "translate-y-[3px] rotate-45" : "")} />
             <span className={"h-px w-4 bg-white transition " + (open ? "-translate-y-[3px] -rotate-45" : "")} />
