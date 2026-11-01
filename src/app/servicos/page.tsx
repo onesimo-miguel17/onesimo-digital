@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SectionLabel } from "@/components/section-label";
 
@@ -74,8 +75,8 @@ export default function ServicesPage() {
               Combinamos pensamento estratégico, criatividade e engenharia para construir experiências, marcas e ferramentas digitais alinhadas com desafios reais.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <a href="/#contacto" className="primary-button group">Falar sobre um projecto <span aria-hidden="true">↗</span></a>
-              <a href="#unidades" className="secondary-button">Explorar capacidades <span aria-hidden="true">↓</span></a>
+              <Link href="/#contacto" className="primary-button group">Falar sobre um projecto <span aria-hidden="true">↗</span></Link>
+              <Link href="#unidades" className="secondary-button">Explorar capacidades <span aria-hidden="true">↓</span></Link>
             </div>
             <div className="mt-16 grid gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
               <div><p className="meta-label">MODELO</p><p className="mt-2 text-sm text-white/75">Núcleo interno + especialistas</p></div>
@@ -97,7 +98,7 @@ export default function ServicesPage() {
                     <p className="text-[10px] tracking-[.2em] text-[#d6b56d]">{service.number} / 04 — {service.name.toUpperCase()}</p>
                     <h3 className="mt-6 text-3xl font-medium leading-tight tracking-[-.055em] sm:text-4xl">{service.title}</h3>
                     <p className="mt-5 text-sm leading-7 text-white/50">{service.description}</p>
-                    <a href="/#contacto" className="mt-8 inline-flex items-center gap-3 text-[10px] font-bold tracking-[.16em] text-[#d6b56d]">FALAR SOBRE ESTA ÁREA <span aria-hidden="true">↗</span></a>
+                    <Link href="/#contacto" className="mt-8 inline-flex items-center gap-3 text-[10px] font-bold tracking-[.16em] text-[#d6b56d]">FALAR SOBRE ESTA ÁREA <span aria-hidden="true">↗</span></Link>
                   </div>
                   <div className="grid gap-7 sm:grid-cols-2">
                     <div>
@@ -131,15 +132,15 @@ export default function ServicesPage() {
             <SectionLabel>O PRÓXIMO PASSO</SectionLabel>
             <h2 className="section-heading mx-auto mt-7">Vamos perceber o que o seu negócio <span className="gold-text">precisa de construir.</span></h2>
             <p className="mx-auto mt-6 max-w-[560px] text-sm leading-7 text-white/50">Partilhe o desafio, o objectivo e o prazo pretendido. A proposta será preparada depois de avaliarmos o âmbito e os recursos necessários.</p>
-            <a href="/#contacto" className="primary-button mt-10">Iniciar uma conversa <span aria-hidden="true">↗</span></a>
+            <Link href="/#contacto" className="primary-button mt-10">Iniciar uma conversa <span aria-hidden="true">↗</span></Link>
           </div>
         </section>
       </main>
       <footer className="border-t border-white/10 py-8">
         <div className="container-shell flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
-          <a href="/" className="text-xs font-semibold tracking-[.13em]">ONÉSIMO <span className="text-[#d6b56d]">DIGITAL.</span></a>
+          <Link href="/" className="text-xs font-semibold tracking-[.13em]">ONÉSIMO <span className="text-[#d6b56d]">DIGITAL.</span></Link>
           <p className="text-[10px] text-white/35">© {new Date().getFullYear()} Onésimo Digital. Todos os direitos reservados.</p>
-          <a href="/#inicio" className="text-[9px] tracking-[.15em] text-white/35">VOLTAR AO INÍCIO ↑</a>
+          <Link href="/#inicio" className="text-[9px] tracking-[.15em] text-white/35">VOLTAR AO INÍCIO ↑</Link>
         </div>
       </footer>
     </>
