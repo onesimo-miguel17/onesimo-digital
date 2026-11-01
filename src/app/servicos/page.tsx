@@ -119,7 +119,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="space-y-7">
                       <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("ABORDAGEM","APPROACH")}</h4><p className="mt-4 text-sm leading-7 text-white/55">{serviceText[service.id].approach}</p></div>
-                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("MODELO","MODEL")} DE EXECUÇÃO</h4><p className="mt-4 text-sm leading-7 text-white/55">{serviceText[service.id].model}</p></div>
+                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("MODELO DE EXECUÇÃO","DELIVERY MODEL")}</h4><p className="mt-4 text-sm leading-7 text-white/55">{serviceText[service.id].model}</p></div>
                     </div>
                   </div>
                 </article>
