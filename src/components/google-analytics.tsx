@@ -67,7 +67,7 @@ export function GoogleAnalytics() {
       });
       window.gtag?.("event", "page_view", {
         page_path: pathname,
-        page_location: window.location.href,
+        page_location: window.location.origin + pathname,
         page_title: document.title,
       });
     }
