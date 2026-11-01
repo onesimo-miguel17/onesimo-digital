@@ -6,13 +6,6 @@ import { SectionLabel } from "@/components/section-label";
 import { LeadForm } from "@/components/lead-form";
 import { useLanguage } from "@/components/language-provider";
 
-const services = [
-  { number: "01", title: tr("Websites e Plataformas","Websites & Platforms"), description: tr("Experiências digitais rápidas, intuitivas e preparadas para transformar visitantes em clientes.","Fast, intuitive digital experiences designed to turn visitors into customers."), tags: tr("DESIGN WEB · DESENVOLVIMENTO","WEB DESIGN · DEVELOPMENT"), symbol: "↗" },
-  { number: "02", title: tr("Marca e Identidade","Branding & Identity"), description: tr("Sistemas de marca consistentes que comunicam valor, personalidade e confiança.","Consistent brand systems that communicate value, personality and trust."), tags: tr("ESTRATÉGIA · IDENTIDADE VISUAL","STRATEGY · VISUAL IDENTITY"), symbol: "✳" },
-  { number: "03", title: tr("Marketing Digital","Digital Marketing"), description: tr("Presença digital inteligente para atrair as pessoas certas e acelerar o crescimento.","A smart digital presence that attracts the right people and accelerates growth."), tags: tr("SEO · CONTEÚDO · DESEMPENHO","SEO · CONTENT · PERFORMANCE"), symbol: "◎" },
-  { number: "04", title: tr("Soluções Tecnológicas","Technology Solutions"), description: tr("Automação e ferramentas digitais desenhadas à medida dos desafios do negócio.","Automation and digital tools tailored to business challenges."), tags: tr("AUTOMAÇÃO · SOFTWARE · INTEGRAÇÃO","AUTOMATION · SOFTWARE · INTEGRATION"), symbol: "⌘" },
-];
-
 function Arrow() {
   return <span aria-hidden="true" className="inline-block text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>;
 }
@@ -21,6 +14,12 @@ export default function Home() {
   const { language } = useLanguage();
   const en = language === "en";
   const tr = (pt: string, english: string) => en ? english : pt;
+  const services = [
+    { number: "01", title: tr("Websites e Plataformas","Websites & Platforms"), description: tr("Experiências digitais rápidas, intuitivas e preparadas para transformar visitantes em clientes.","Fast, intuitive digital experiences designed to turn visitors into customers."), tags: tr("DESIGN WEB · DESENVOLVIMENTO","WEB DESIGN · DEVELOPMENT"), symbol: "↗" },
+    { number: "02", title: tr("Marca e Identidade","Branding & Identity"), description: tr("Sistemas de marca consistentes que comunicam valor, personalidade e confiança.","Consistent brand systems that communicate value, personality and trust."), tags: tr("ESTRATÉGIA · IDENTIDADE VISUAL","STRATEGY · VISUAL IDENTITY"), symbol: "✳" },
+    { number: "03", title: tr("Marketing Digital","Digital Marketing"), description: tr("Presença digital inteligente para atrair as pessoas certas e acelerar o crescimento.","A smart digital presence that attracts the right people and accelerates growth."), tags: tr("SEO · CONTEÚDO · DESEMPENHO","SEO · CONTENT · PERFORMANCE"), symbol: "◎" },
+    { number: "04", title: tr("Soluções Tecnológicas","Technology Solutions"), description: tr("Automação e ferramentas digitais desenhadas à medida dos desafios do negócio.","Automation and digital tools tailored to business challenges."), tags: tr("AUTOMAÇÃO · SOFTWARE · INTEGRAÇÃO","AUTOMATION · SOFTWARE · INTEGRATION"), symbol: "⌘" },
+  ];
   return (
     <>
       <SiteHeader />
