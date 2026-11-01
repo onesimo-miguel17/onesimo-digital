@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "@/components/language-provider";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: { default: "Onésimo Digital — Estúdio de Tecnologia Digital", template: "%s | Onésimo Digital" },
@@ -15,5 +16,12 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: "#080808", colorScheme: "dark" };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-AO" data-scroll-behavior="smooth"><body><LanguageProvider>{children}</LanguageProvider></body></html>;
+  return (
+  <html lang="pt-AO" data-scroll-behavior="smooth">
+    <body>
+      <LanguageProvider>{children}</LanguageProvider>
+      <Analytics />
+    </body>
+  </html>
+);
 }
