@@ -17,6 +17,35 @@ declare global {
 
 const CONSENT_KEY = "od-analytics-consent";
 const MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const CAMPAIGN_PARAMETERS = [
+  "utm_id",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "utm_source_platform",
+  "utm_creative_format",
+  "utm_marketing_tactic",
+  "gclid",
+  "dclid",
+  "gbraid",
+  "wbraid",
+  "srsltid",
+] as const;
+
+function getAnalyticsPageLocation(): string {
+  const currentUrl = new URL(window.location.href);
+  const campaign = new URLSearchParams();
+
+  for (const key of CAMPAIGN_PARAMETERS) {
+    const value = currentUrl.searchParams.get(key);
+    if (value) campaign.set(key, value);
+  }
+
+  const query = campaign.toString();
+  return `${currentUrl.origin}${currentUrl.pathname}${query ? `?${query}` : ""}`;
+}
 
 function subscribeToConsent(onStoreChange: () => void) {
   window.addEventListener("od-analytics-consent-change", onStoreChange);
@@ -67,7 +96,7 @@ export function GoogleAnalytics() {
       });
       window.gtag?.("event", "page_view", {
         page_path: pathname,
-        page_location: window.location.origin + pathname,
+        page_location: getAnalyticsPageLocation(),
         page_title: document.title,
       });
     }

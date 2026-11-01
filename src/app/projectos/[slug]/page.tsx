@@ -6,11 +6,27 @@ import { DemoExperience } from "@/components/demo-experience";
 const slugs = ["form", "nexus", "cliniq", "aura"] as const;
 type Slug = (typeof slugs)[number];
 
-const titles: Record<Slug, string> = {
-  form: "Compra Certa — Loja Online",
-  nexus: "Meu Negócio — Gestão Empresarial",
-  cliniq: "Marque Já — Marcações Online",
-  aura: "Minha Marca — Identidade Visual",
+const projectMetadata: Record<Slug, { title: string; description: string }> = {
+  form: {
+    title: "Compra Certa — Demonstração de Comércio Digital",
+    description:
+      "Explore uma demonstração conceptual de comércio digital com catálogo, pesquisa, filtros e carrinho. Produtos e dados apresentados são ilustrativos.",
+  },
+  nexus: {
+    title: "Meu Negócio — Demonstração de Gestão Empresarial",
+    description:
+      "Explore uma demonstração conceptual de gestão empresarial com indicadores, clientes, vendas e actividade. Todos os dados são fictícios.",
+  },
+  cliniq: {
+    title: "Marque Já — Demonstração de Marcações Online",
+    description:
+      "Explore uma demonstração ilustrativa de marcações online com serviços, profissionais e horários. Não constitui um sistema clínico ou de reservas em produção.",
+  },
+  aura: {
+    title: "Minha Marca — Demonstração de Identidade Visual",
+    description:
+      "Explore um conceito demonstrativo de identidade visual, incluindo cores, tipografia e aplicações de marca.",
+  },
 };
 
 export function generateStaticParams() {
@@ -20,9 +36,20 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   if (!slugs.includes(slug as Slug)) return { title: "Projecto não encontrado | Onésimo Digital" };
+
+  const project = projectMetadata[slug as Slug];
+  const canonical = `/projectos/${slug}`;
+
   return {
-    title: `${titles[slug as Slug]} | Onésimo Digital`,
-    description: "Explore uma demonstração interactiva criada pela Onésimo Digital. Dados fictícios, experiência de produto.",
+    title: project.title,
+    description: project.description,
+    alternates: { canonical },
+    openGraph: {
+      title: `${project.title} | Onésimo Digital`,
+      description: project.description,
+      url: canonical,
+      type: "website",
+    },
   };
 }
 
