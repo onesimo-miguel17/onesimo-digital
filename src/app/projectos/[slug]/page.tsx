@@ -7,10 +7,10 @@ const slugs = ["form", "nexus", "cliniq", "aura"] as const;
 type Slug = (typeof slugs)[number];
 
 const titles: Record<Slug, string> = {
-  form: "FORM. — Digital Commerce Demo",
-  nexus: "NEXUS — Business Intelligence Demo",
-  cliniq: "CLINIQ — Smart Booking Demo",
-  aura: "AURA. — Brand Experience Demo",
+  form: "Compra Certa — Loja Online",
+  nexus: "Meu Negócio — Gestão Empresarial",
+  cliniq: "Marque Já — Marcações Online",
+  aura: "Minha Marca — Identidade Visual",
 };
 
 export function generateStaticParams() {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!slugs.includes(slug as Slug)) return { title: "Projecto não encontrado | Onésimo Digital" };
   return {
     title: `${titles[slug as Slug]} | Onésimo Digital`,
-    description: "Explore uma demonstração interactiva de conceito criada pela Onésimo Digital. Dados fictícios, experiência real de produto.",
+    description: "Explore uma demonstração interactiva criada pela Onésimo Digital. Dados fictícios, experiência de produto.",
   };
 }
 
