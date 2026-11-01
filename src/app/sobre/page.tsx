@@ -1,15 +1,9 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SectionLabel } from "@/components/section-label";
 import { useLanguage } from "@/components/language-provider";
-
-export const metadata: Metadata = {
-  title: "Sobre",
-  description: "Conheça a visão, a abordagem e o modelo de trabalho da Onésimo Digital, um estúdio independente de tecnologia e criatividade.",
-};
 
 const principles = [
   {
@@ -72,7 +66,7 @@ export default function AboutPage() {
               <p className="mt-6 max-w-[280px] text-sm leading-7 text-white/40">{tr("Não construímos tecnologia por tendência. Construímo-la para criar valor.","We do not build technology for trends. We build it to create value.")}</p>
             </div>
             <div>
-              <h2 className="section-heading">{tr("O digital deve ser uma ","Digital should be a ")}<span className="gold-text">{tr("vantagem real","real advantage")}</span> for the people who use it.</h2>
+              <h2 className="section-heading">{tr("O digital deve ser uma ","Digital should be a ")}<span className="gold-text">{tr("vantagem real","real advantage")}</span>{tr(" para quem o utiliza."," for the people who use it.")}</h2>
               <p className="mt-8 max-w-[720px] text-sm leading-8 text-white/55">
                 {tr("Acreditamos que uma presença digital forte vai além de uma aparência moderna. Precisa de comunicar com clareza, funcionar de forma consistente e apoiar objectivos concretos. Por isso, ligamos pensamento estratégico, experiência de utilização e implementação técnica desde o início.","We believe a strong digital presence goes beyond a modern appearance. It must communicate clearly, work consistently and support concrete goals. That is why we connect strategic thinking, user experience and technical implementation from the start.")}
               </p>
@@ -91,8 +85,8 @@ export default function AboutPage() {
               {principles.map((principle) => (
                 <article key={principle.number} className="border-t border-[#d6b56d]/35 pt-5">
                   <p className="text-[10px] tracking-[.18em] text-[#d6b56d]">{principle.number}</p>
-                  <h3 className="mt-5 text-xl tracking-[-.04em]">{principle.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-white/45">{principle.description}</p>
+                  <h3 className="mt-5 text-xl tracking-[-.04em]">{tr(principle.title, ({ "Clareza antes da execução": "Clarity before execution", "Design com intenção": "Design with intent", "Tecnologia adequada": "Technology that fits", "Responsabilidade na entrega": "Responsible delivery" } as Record<string,string>)[principle.title])}</h3>
+                  <p className="mt-4 text-sm leading-7 text-white/45">{tr(principle.description, ({ "Começamos por compreender o contexto, o público e o resultado pretendido. Uma boa solução responde a um problema real.": "We start by understanding the context, audience and desired outcome. A good solution addresses a real problem.", "Cada decisão visual e cada interacção devem reforçar a mensagem, facilitar a utilização e criar confiança.": "Every visual decision and interaction should reinforce the message, improve usability and build trust.", "Escolhemos ferramentas de acordo com os requisitos, a capacidade de evolução, a segurança e o contexto de cada projecto.": "We choose tools according to requirements, scalability, security and each project’s context.", "Definimos âmbito, responsabilidades e critérios de validação. Comunicamos limites e envolvemos especialistas quando necessário.": "We define scope, responsibilities and acceptance criteria. We communicate limitations and involve specialists when needed." } as Record<string,string>)[principle.description])}</p>
                 </article>
               ))}
             </div>
