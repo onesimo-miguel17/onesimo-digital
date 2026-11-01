@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { useLanguage } from "@/components/language-provider";
+import { trackAnalyticsEvent } from "@/components/google-analytics";
 
 type SubmissionState = "idle" | "sending" | "success" | "error";
 
@@ -28,6 +29,7 @@ export function LeadForm() {
       });
       const result = (await response.json()) as { error?: string };
       if (!response.ok) throw new Error(result.error || tr("Não foi possível enviar o pedido. Tente novamente.","Unable to send your request. Please try again."));
+      trackAnalyticsEvent("generate_lead", { service_category: String(payload.service || "not_specified") });
       form.reset();
       setStatus("success");
       setFeedback(tr("Pedido enviado com sucesso. A Onésimo Digital entrará em contacto consigo.","Your request was sent successfully. Onésimo Digital will be in touch."));
@@ -46,7 +48,7 @@ export function LeadForm() {
         <div className="lead-field"><label htmlFor="lead-phone">{tr("TELEFONE / WHATSAPP","PHONE / WHATSAPP")}</label><input id="lead-phone" name="phone" type="tel" autoComplete="tel" placeholder="+244 ..." maxLength={30} /></div>
         <div className="lead-field">
           <label htmlFor="lead-service">{tr("SERVIÇO PRETENDIDO *","SERVICE REQUIRED *")}</label>
-          <select id="lead-service" name="service" defaultValue="" required>
+          <select id="lead-service" name="service" defaultValue="" required onChange={(event) => trackAnalyticsEvent("select_service", { service_category: event.target.value })}>
             <option value="" disabled>{tr("Seleccione uma área","Select a service")}</option>
             <option value="Websites e plataformas">{tr("Websites e plataformas","Websites and platforms")}</option>
             <option value="E-commerce">{tr("Comércio electrónico","E-commerce")}</option>
