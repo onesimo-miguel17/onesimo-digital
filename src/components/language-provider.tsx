@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useSyncExternalStore } from "react";
 
 export type Language = "pt" | "en";
 
@@ -26,16 +26,16 @@ function getServerSnapshot(): Language {
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const language = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  const setLanguage = (next: Language) => {
+  const setLanguage = useCallback((next: Language) => {
     window.localStorage.setItem("od-language", next);
     window.dispatchEvent(new Event("od-language-change"));
-  };
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = language === "pt" ? "pt-AO" : "en";
   }, [language]);
 
-  const value = useMemo(() => ({ language, setLanguage }), [language]);
+  const value = useMemo(() => ({ language, setLanguage }), [language, setLanguage]);
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
