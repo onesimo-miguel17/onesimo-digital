@@ -36,6 +36,24 @@ function getServerConsentSnapshot(): AnalyticsConsent {
   return "unknown";
 }
 
+function subscribeToConsent(onStoreChange: () => void) {
+  window.addEventListener("od-analytics-consent-change", onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+  return () => {
+    window.removeEventListener("od-analytics-consent-change", onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
+
+function getConsentSnapshot(): AnalyticsConsent {
+  const saved = window.localStorage.getItem(CONSENT_KEY);
+  return saved === "granted" || saved === "denied" ? saved : "unknown";
+}
+
+function getServerConsentSnapshot(): AnalyticsConsent {
+  return "unknown";
+}
+
 export function trackAnalyticsEvent(eventName: string, params: AnalyticsParams = {}) {
   if (typeof window === "undefined" || !MEASUREMENT_ID) return;
   if (window.localStorage.getItem(CONSENT_KEY) !== "granted") return;
