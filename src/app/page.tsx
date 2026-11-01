@@ -9,11 +9,6 @@ const services = [
   { number: "04", title: "Soluções Tecnológicas", description: "Automação e ferramentas digitais desenhadas à medida dos desafios do negócio.", tags: "AUTOMAÇÃO · SOFTWARE · INTEGRAÇÃO", symbol: "⌘" },
 ];
 
-const projects = [
-  { number: "01", name: "Digital Commerce", type: "ECOMMERCE EXPERIENCE", className: "commerce-art", mark: "Nº 01", description: "Uma experiência de comércio digital construída para converter." },
-  { number: "02", name: "Brand Universe", type: "BRAND & DIGITAL IDENTITY", className: "universe-art", mark: "FORM / FUNCTION", description: "Um universo visual coerente, distinto e memorável." },
-];
-
 function Arrow() {
   return <span aria-hidden="true" className="inline-block text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>;
 }
