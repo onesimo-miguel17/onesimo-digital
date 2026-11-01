@@ -1,23 +1,34 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from "react";
 
 export type Language = "pt" | "en";
 
 const LanguageContext = createContext<{ language: Language; setLanguage: (language: Language) => void } | null>(null);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("pt");
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener("od-language-change", onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+  return () => {
+    window.removeEventListener("od-language-change", onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
 
-  useEffect(() => {
-    const saved = window.localStorage.getItem("od-language");
-    if (saved === "pt" || saved === "en") setLanguageState(saved);
-  }, []);
+function getSnapshot(): Language {
+  return window.localStorage.getItem("od-language") === "en" ? "en" : "pt";
+}
+
+function getServerSnapshot(): Language {
+  return "pt";
+}
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const language = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const setLanguage = (next: Language) => {
-    setLanguageState(next);
     window.localStorage.setItem("od-language", next);
-    document.documentElement.lang = next === "pt" ? "pt-AO" : "en";
+    window.dispatchEvent(new Event("od-language-change"));
   };
 
   useEffect(() => {
