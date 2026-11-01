@@ -59,7 +59,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div aria-label="Composição gráfica da identidade Onésimo Digital" className="hero-art relative mx-auto flex aspect-square w-full max-w-[560px] items-center justify-center">
+            <div aria-label={tr("Composição gráfica da identidade Onésimo Digital","Onésimo Digital brand composition")} className="hero-art relative mx-auto flex aspect-square w-full max-w-[560px] items-center justify-center">
               <div className="art-orbit orbit-one" />
               <div className="art-orbit orbit-two" />
               <div className="art-orbit orbit-three" />
@@ -75,14 +75,14 @@ export default function Home() {
               <div className="art-satellite satellite-one"><span className="satellite-icon">✳</span><span><b>{tr("DESIGN","DESIGN")}</b><small>{tr("Feito para ter significado.","Made to matter.")}</small></span></div>
               <div className="art-satellite satellite-two"><span className="satellite-icon">⌘</span><span><b>{tr("TECNOLOGIA","TECHNOLOGY")}</b><small>{tr("Criada para evoluir.","Built to evolve.")}</small></span></div>
               <div className="art-coordinate coordinate-one">08°50&apos; S<br />13°14&apos; E</div>
-              <div className="art-coordinate coordinate-two">EST. / 2026</div>
+              <div className="art-coordinate coordinate-two">{tr("FUNDADO / 2026","EST. / 2026")}</div>
               <span className="art-particle particle-one" />
               <span className="art-particle particle-two" />
               <span className="art-particle particle-three" />
             </div>
           </div>
           <div className="hero-bottomline absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4 sm:px-10">
-            <span>{tr("FEITO PARA FAZER NEGÓCIOS AVANÇAR","DESIGNED TO MOVE BUSINESS FORWARD")}</span><span className="hidden sm:block">{tr("DESÇA PARA EXPLORAR ↓","SCROLL TO EXPLORE ↓")}</span><span>LUANDA · MUNDO</span>
+            <span>{tr("FEITO PARA FAZER NEGÓCIOS AVANÇAR","DESIGNED TO MOVE BUSINESS FORWARD")}</span><span className="hidden sm:block">{tr("DESÇA PARA EXPLORAR ↓","SCROLL TO EXPLORE ↓")}</span><span>{tr("LUANDA · MUNDO","LUANDA · WORLDWIDE")}</span>
           </div>
         </section>
 
