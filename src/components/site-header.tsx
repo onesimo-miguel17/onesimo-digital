@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
+import { trackAnalyticsEvent } from "@/components/google-analytics";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ export function SiteHeader() {
             <span aria-hidden="true">/</span>
             <button type="button" onClick={() => setLanguage("en")} aria-pressed={english} className={english ? "active" : ""}>EN</button>
           </div>
-          <Link href="/contactos" className="header-cta hidden border border-[#d6b56d]/70 px-5 py-3 text-[10px] font-bold tracking-[.14em] text-[#e7ca8a] transition lg:inline-flex">{english ? "START A PROJECT" : "INICIAR PROJECTO"} <span className="ml-3">↗</span></Link>
+          <Link href="/contactos" onClick={() => trackAnalyticsEvent("quote_cta_click", { cta_location: "header" })} className="header-cta hidden border border-[#d6b56d]/70 px-5 py-3 text-[10px] font-bold tracking-[.14em] text-[#e7ca8a] transition lg:inline-flex">{english ? "START A PROJECT" : "INICIAR PROJECTO"} <span className="ml-3">↗</span></Link>
           <button type="button" aria-label={open ? (english ? "Close menu" : "Fechar menu") : (english ? "Open menu" : "Abrir menu")} aria-expanded={open} onClick={() => setOpen(!open)} className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] border border-white/15 md:hidden">
             <span className={"h-px w-4 bg-white transition " + (open ? "translate-y-[3px] rotate-45" : "")} />
             <span className={"h-px w-4 bg-white transition " + (open ? "-translate-y-[3px] -rotate-45" : "")} />
@@ -41,7 +42,7 @@ export function SiteHeader() {
       </div>
       {open && <nav className="border-t border-white/10 bg-[#0b0b0b] px-[18px] py-5 md:hidden" aria-label={english ? "Mobile navigation" : "Navegação móvel"}>
         {links.map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="block border-b border-white/[0.06] py-4 text-sm text-white/75">{link.label}</Link>)}
-        <Link href="/contactos" onClick={() => setOpen(false)} className="mt-5 inline-flex text-xs font-bold tracking-widest text-[#d6b56d]">{english ? "START A PROJECT" : "INICIAR PROJECTO"} ↗</Link>
+        <Link href="/contactos" onClick={() => { setOpen(false); trackAnalyticsEvent("quote_cta_click", { cta_location: "mobile_header" }); }} className="mt-5 inline-flex text-xs font-bold tracking-widest text-[#d6b56d]">{english ? "START A PROJECT" : "INICIAR PROJECTO"} ↗</Link>
       </nav>}
     </header>
   );
