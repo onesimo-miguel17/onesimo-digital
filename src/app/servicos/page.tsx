@@ -1,7 +1,10 @@
+"use client";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SectionLabel } from "@/components/section-label";
+import { useLanguage } from "@/components/language-provider";
 
 export const metadata: Metadata = {
   title: "Serviços",
@@ -59,6 +62,9 @@ const principles = [
 ];
 
 export default function ServicesPage() {
+  const { language } = useLanguage();
+  const en = language === "en";
+  const tr = (pt: string, english: string) => en ? english : pt;
   return (
     <>
       <SiteHeader />
@@ -66,31 +72,31 @@ export default function ServicesPage() {
         <section className="services-page-hero relative overflow-hidden border-b border-white/10">
           <div aria-hidden="true" className="hero-grid absolute inset-0" />
           <div className="container-shell relative z-10 pb-20 pt-40 sm:pb-28 sm:pt-48">
-            <SectionLabel>CAPACIDADES / ONÉSIMO DIGITAL</SectionLabel>
-            <p className="section-overline mt-10">ESTRATÉGIA. DESIGN. TECNOLOGIA.</p>
+            <SectionLabel>{tr("CAPACIDADES / ONÉSIMO DIGITAL","CAPABILITIES / ONÉSIMO DIGITAL")}</SectionLabel>
+            <p className="section-overline mt-10">{tr("ESTRATÉGIA. DESIGN. TECNOLOGIA.","STRATEGY. DESIGN. TECHNOLOGY.")}</p>
             <h1 className="mt-5 max-w-[1000px] text-[clamp(3.3rem,8vw,7rem)] font-medium leading-[.9] tracking-[-.075em]">
-              Soluções digitais para <span className="gold-text">negócios em movimento.</span>
+              {tr("Soluções digitais para ","Digital solutions for ")}<span className="gold-text">{tr("negócios em movimento.","businesses on the move.")}</span>
             </h1>
             <p className="mt-8 max-w-[650px] text-sm leading-8 text-white/55 sm:text-base">
-              Combinamos pensamento estratégico, criatividade e engenharia para construir experiências, marcas e ferramentas digitais alinhadas com desafios reais.
+              {tr("Combinamos pensamento estratégico, criatividade e engenharia para construir experiências, marcas e ferramentas digitais alinhadas com desafios reais.","We combine strategic thinking, creativity and engineering to build digital experiences, brands and tools aligned with real challenges.")}
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link href="/#contacto" className="primary-button group">Falar sobre um projecto <span aria-hidden="true">↗</span></Link>
-              <Link href="#unidades" className="secondary-button">Explorar capacidades <span aria-hidden="true">↓</span></Link>
+              <Link href="/#contacto" className="primary-button group">{tr("Falar sobre um projecto","Discuss a project")} <span aria-hidden="true">↗</span></Link>
+              <Link href="#unidades" className="secondary-button">{tr("Explorar capacidades","Explore capabilities")} <span aria-hidden="true">↓</span></Link>
             </div>
             <div className="mt-16 grid gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
-              <div><p className="meta-label">MODELO</p><p className="mt-2 text-sm text-white/75">Núcleo interno + especialistas</p></div>
-              <div><p className="meta-label">MERCADO</p><p className="mt-2 text-sm text-white/75">Angola e internacional</p></div>
-              <div><p className="meta-label">ABORDAGEM</p><p className="mt-2 text-sm text-white/75">Escopo definido por projecto</p></div>
+              <div><p className="meta-label">{tr("MODELO","MODEL")}</p><p className="mt-2 text-sm text-white/75">{tr("Núcleo interno + especialistas","Core team + specialists")}</p></div>
+              <div><p className="meta-label">{tr("MERCADO","MARKET")}</p><p className="mt-2 text-sm text-white/75">{tr("Angola e internacional","Angola and international")}</p></div>
+              <div><p className="meta-label">{tr("ABORDAGEM","APPROACH")}</p><p className="mt-2 text-sm text-white/75">{tr("Âmbito definido por projecto","Project-defined scope")}</p></div>
             </div>
           </div>
         </section>
 
         <section id="unidades" className="section-space services-section">
           <div className="container-shell">
-            <SectionLabel>01 / UNIDADES DE NEGÓCIO</SectionLabel>
-            <h2 className="section-heading mt-6">Quatro áreas. <span className="gold-text">Uma visão integrada.</span></h2>
-            <p className="mt-6 max-w-[620px] text-sm leading-7 text-white/50">As capacidades são organizadas em quatro unidades. O âmbito de cada contratação é definido após diagnóstico e confirmação dos recursos necessários.</p>
+            <SectionLabel>01 / {tr("UNIDADES DE NEGÓCIO","BUSINESS UNITS")}</SectionLabel>
+            <h2 className="section-heading mt-6">{tr("Quatro áreas. ","Four areas. ")}<span className="gold-text">{tr("Uma visão integrada.","One integrated vision.")}</span></h2>
+            <p className="mt-6 max-w-[620px] text-sm leading-7 text-white/50">{tr("As capacidades são organizadas em quatro unidades. O âmbito de cada contratação é definido após diagnóstico e confirmação dos recursos necessários.","Our capabilities are organised into four units. Each engagement is scoped after an initial assessment and confirmation of the resources required.")}</p>
             <div className="mt-14 space-y-5">
               {serviceLines.map((service) => (
                 <article id={service.id} key={service.id} className="service-detail-card gold-border grid gap-8 p-7 sm:p-10 lg:grid-cols-[.78fr_1.22fr]">
@@ -102,12 +108,12 @@ export default function ServicesPage() {
                   </div>
                   <div className="grid gap-7 sm:grid-cols-2">
                     <div>
-                      <h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">SERVIÇOS E ENTREGÁVEIS</h4>
+                      <h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("SERVIÇOS E ENTREGÁVEIS","SERVICES AND DELIVERABLES")}</h4>
                       <ul className="mt-4 space-y-3">{service.deliverables.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-white/55"><span className="text-[#d6b56d]">—</span>{item}</li>)}</ul>
                     </div>
                     <div className="space-y-7">
-                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">ABORDAGEM</h4><p className="mt-4 text-sm leading-7 text-white/55">{service.approach}</p></div>
-                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">MODELO DE EXECUÇÃO</h4><p className="mt-4 text-sm leading-7 text-white/55">{service.model}</p></div>
+                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("ABORDAGEM","APPROACH")}</h4><p className="mt-4 text-sm leading-7 text-white/55">{service.approach}</p></div>
+                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("MODELO","MODEL")} DE EXECUÇÃO</h4><p className="mt-4 text-sm leading-7 text-white/55">{service.model}</p></div>
                     </div>
                   </div>
                 </article>
@@ -118,8 +124,8 @@ export default function ServicesPage() {
 
         <section className="section-space border-y border-white/[0.06]">
           <div className="container-shell">
-            <SectionLabel>02 / COMO TRABALHAMOS</SectionLabel>
-            <h2 className="section-heading mt-6">Um processo claro. <span className="gold-text">Do primeiro diálogo à entrega.</span></h2>
+            <SectionLabel>02 / {tr("COMO TRABALHAMOS","HOW WE WORK")}</SectionLabel>
+            <h2 className="section-heading mt-6">{tr("Um processo claro. ","A clear process. ")}<span className="gold-text">{tr("Do primeiro diálogo à entrega.","From first conversation to delivery.")}</span></h2>
             <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
               {principles.map((item) => <article key={item.number} className="border-t border-[#d6b56d]/35 pt-5"><p className="text-[10px] tracking-[.18em] text-[#d6b56d]">{item.number}</p><h3 className="mt-5 text-xl tracking-[-.04em]">{item.title}</h3><p className="mt-4 text-sm leading-7 text-white/45">{item.text}</p></article>)}
             </div>
@@ -129,18 +135,18 @@ export default function ServicesPage() {
         <section className="cta-stage relative overflow-hidden py-24 sm:py-32">
           <div className="cta-glow" />
           <div className="container-shell relative text-center">
-            <SectionLabel>O PRÓXIMO PASSO</SectionLabel>
-            <h2 className="section-heading mx-auto mt-7">Vamos perceber o que o seu negócio <span className="gold-text">precisa de construir.</span></h2>
-            <p className="mx-auto mt-6 max-w-[560px] text-sm leading-7 text-white/50">Partilhe o desafio, o objectivo e o prazo pretendido. A proposta será preparada depois de avaliarmos o âmbito e os recursos necessários.</p>
-            <Link href="/#contacto" className="primary-button mt-10">Iniciar uma conversa <span aria-hidden="true">↗</span></Link>
+            <SectionLabel>{tr("O PRÓXIMO PASSO","THE NEXT STEP")}</SectionLabel>
+            <h2 className="section-heading mx-auto mt-7">{tr("Vamos perceber o que o seu negócio ","Let’s understand what your business ")}<span className="gold-text">{tr("precisa de construir.","needs to build.")}</span></h2>
+            <p className="mx-auto mt-6 max-w-[560px] text-sm leading-7 text-white/50">{tr("Partilhe o desafio, o objectivo e o prazo pretendido. A proposta será preparada depois de avaliarmos o âmbito e os recursos necessários.","Tell us about the challenge, your goal and desired timeline. We will prepare a proposal after assessing the scope and resources required.")}</p>
+            <Link href="/#contacto" className="primary-button mt-10">{tr("Iniciar uma conversa","Start a conversation")} <span aria-hidden="true">↗</span></Link>
           </div>
         </section>
       </main>
       <footer className="border-t border-white/10 py-8">
         <div className="container-shell flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
           <Link href="/" className="text-xs font-semibold tracking-[.13em]">ONÉSIMO <span className="text-[#d6b56d]">DIGITAL.</span></Link>
-          <p className="text-[10px] text-white/35">© {new Date().getFullYear()} Onésimo Digital. Todos os direitos reservados.</p>
-          <Link href="/#inicio" className="text-[9px] tracking-[.15em] text-white/35">VOLTAR AO INÍCIO ↑</Link>
+          <p className="text-[10px] text-white/35">© {new Date().getFullYear()} Onésimo Digital. {tr("Todos os direitos reservados.","All rights reserved.")}</p>
+          <Link href="/#inicio" className="text-[9px] tracking-[.15em] text-white/35">{tr("VOLTAR AO INÍCIO ↑","BACK TO TOP ↑")}</Link>
         </div>
       </footer>
     </>
