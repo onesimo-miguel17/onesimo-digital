@@ -150,3 +150,21 @@ button { font: inherit; }
 .nav-link:hover::after { transform: scaleX(1); }
 .header-cta { align-items: center; }
 .header-cta:hover { background: var(--gold); color: #080808; box-shadow: 0 0 28px rgba(214,181,109,.16); }
+
+
+/* Commercial services page */
+.services-page-hero {
+  background: radial-gradient(ellipse at 78% 48%, rgba(173,130,57,.13), transparent 38%), #080808;
+}
+.service-detail-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008));
+  transition: border-color .3s, background .3s;
+}
+.service-detail-card:hover {
+  border-color: rgba(214,181,109,.48);
+  background: linear-gradient(145deg, rgba(214,181,109,.065), rgba(255,255,255,.012));
+}
+.service-detail-card:target {
+  border-color: rgba(214,181,109,.72);
+  box-shadow: 0 0 35px rgba(214,181,109,.07);
+}
