@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SectionLabel } from "@/components/section-label";
 import { useLanguage } from "@/components/language-provider";
+import { trackAnalyticsEvent } from "@/components/google-analytics";
 
 export default function ProjectsPage() {
   const { language } = useLanguage();
@@ -34,7 +35,7 @@ export default function ProjectsPage() {
             <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><SectionLabel>01 / {tr("PROJECTOS DEMONSTRATIVOS","CONCEPT PROJECTS")}</SectionLabel><h2 className="section-heading mt-5">{tr("Escolha uma experiência.","Choose an experience.")}</h2></div><p className="max-w-[330px] text-sm leading-7 text-white/45">{tr("Cada demonstração utiliza dados fictícios e funciona de forma independente. Nenhuma operação real é efectuada.","Each demo uses fictional data and works independently. No real-world operation is performed.")}</p></div>
             <div className="grid gap-7 md:grid-cols-2">
               {demos.map((demo) => (
-                <Link key={demo.slug} href={`/projectos/${demo.slug}`} className="demo-index-card group block">
+                <Link key={demo.slug} href={`/projectos/${demo.slug}`} onClick={() => trackAnalyticsEvent("view_demo", { demo_slug: demo.slug })} className="demo-index-card group block">
                   <div className={`demo-index-art ${demo.visual}`}><span className="demo-art-number">{demo.number} / 04</span><span className="demo-art-wordmark">{demo.name}</span><span className="demo-art-caption">ONÉSIMO DIGITAL — {tr("DEMONSTRAÇÃO","PRODUCT DEMO")}</span><span className="demo-art-open">↗</span></div>
                   <div className="flex flex-col justify-between gap-5 p-6 sm:flex-row sm:items-start sm:p-8"><div><p className="text-[9px] font-bold tracking-[.2em] text-[#d6b56d]">{demo.category}</p><h3 className="mt-3 text-2xl tracking-[-.04em]">{demo.name}</h3><p className="mt-3 max-w-[440px] text-sm leading-7 text-white/50">{demo.description}</p><div className="mt-5 flex flex-wrap gap-2">{demo.tags.map((tag) => <span key={tag} className="demo-tag">{tag}</span>)}</div></div><span className="shrink-0 text-[10px] font-bold tracking-[.12em] text-[#e7ca8a]">{demo.outcome} ↗</span></div>
                 </Link>

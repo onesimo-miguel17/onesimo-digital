@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "@/components/language-provider";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 export const metadata: Metadata = {
   title: { default: "Onésimo Digital — Estúdio de Tecnologia Digital", template: "%s | Onésimo Digital" },
@@ -19,7 +20,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
   <html lang="pt-AO" data-scroll-behavior="smooth">
     <body>
-      <LanguageProvider>{children}</LanguageProvider>
+      <LanguageProvider>
+        {children}
+        <GoogleAnalytics />
+      </LanguageProvider>
       <Analytics />
     </body>
   </html>
