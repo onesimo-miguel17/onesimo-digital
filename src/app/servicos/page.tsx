@@ -1,15 +1,9 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SectionLabel } from "@/components/section-label";
 import { useLanguage } from "@/components/language-provider";
-
-export const metadata: Metadata = {
-  title: "Serviços",
-  description: "Conheça as capacidades da Onésimo Digital em experiências digitais, branding, tecnologia empresarial e crescimento digital.",
-};
 
 const serviceLines = [
   {
@@ -65,6 +59,18 @@ export default function ServicesPage() {
   const { language } = useLanguage();
   const en = language === "en";
   const tr = (pt: string, english: string) => en ? english : pt;
+  const serviceText: Record<string, { name: string; title: string; description: string; deliverables: string[]; approach: string; model: string }> = {
+    "digital-experiences": { name: tr("Experiências Digitais","Digital Experiences"), title: tr("Experiências digitais que aproximam marcas e pessoas.","Digital experiences that bring brands and people closer."), description: tr("Concebemos e desenvolvemos experiências web funcionais, responsivas e alinhadas com os objectivos do negócio.","We design and build functional, responsive web experiences aligned with business goals."), deliverables: en ? ["Corporate websites","Landing pages and campaign pages","Online shops and e-commerce experiences","Custom web platforms and applications","Technical optimisation and digital product evolution"] : ["Websites institucionais","Páginas de apresentação e campanhas","Lojas online e experiências de comércio digital","Plataformas web e aplicações à medida","Optimização técnica e evolução de produtos digitais"], approach: tr("Estratégia de conteúdo, arquitectura, experiência e interface, desenvolvimento, testes e entrega.","Content strategy, architecture, user experience and interface design, development, testing and delivery."), model: tr("Execução interna para projectos compatíveis com a capacidade técnica disponível. Especialistas externos podem ser envolvidos mediante aprovação.","In-house delivery for projects within our available technical capacity. External specialists may be engaged with approval.") },
+    "brand-creative": { name: tr("Marca e Criatividade","Brand & Creative"), title: tr("Marcas com clareza, consistência e personalidade.","Brands with clarity, consistency and personality."), description: tr("Construímos sistemas visuais que ajudam negócios a comunicar o seu valor de forma reconhecível e coerente.","We build visual systems that help businesses communicate their value with clarity and consistency."), deliverables: en ? ["Brand strategy and positioning","Visual identity and graphic systems","Logos and brand applications","Identity guidelines and art direction","Digital communication materials"] : ["Estratégia e posicionamento de marca","Identidade visual e sistemas gráficos","Logótipos e aplicações da marca","Guias de identidade e direcção visual","Materiais digitais de comunicação"], approach: tr("Descoberta, direcção criativa, exploração visual, refinamento e preparação dos ficheiros finais.","Discovery, creative direction, visual exploration, refinement and final file preparation."), model: tr("Direcção e coordenação internas. Produção especializada pode ser atribuída a parceiros com portefólio validado.","Direction and coordination in-house. Specialist production may be assigned to vetted partners.") },
+    "business-technology": { name: tr("Tecnologia Empresarial","Business Technology"), title: tr("Tecnologia desenhada em torno do trabalho real.","Technology designed around real work."), description: tr("Ajudamos a transformar processos manuais e desafios operacionais em soluções digitais úteis e sustentáveis.","We help turn manual processes and operational challenges into useful, sustainable digital solutions."), deliverables: en ? ["Custom applications and software","Process automation","Platform integrations","Business portals and dashboards","Technical consulting and prototyping"] : ["Aplicações e software à medida","Automação de processos","Integrações entre plataformas","Portais e painéis empresariais","Consultoria técnica e prototipagem"], approach: tr("Diagnóstico, definição de requisitos, desenho técnico, implementação, testes e documentação.","Assessment, requirements definition, technical design, implementation, testing and documentation."), model: tr("Aceitação condicionada à análise técnica e de segurança. Projectos especializados podem exigir parceiros aprovados.","Engagement depends on technical and security assessment. Specialist projects may require approved partners.") },
+    "digital-growth": { name: tr("Crescimento Digital","Digital Growth"), title: tr("Mais clareza para atrair, converter e evoluir.","More clarity to attract, convert and grow."), description: tr("Estruturamos a presença digital e os pontos de contacto para apoiar crescimento mensurável e decisões melhores.","We structure digital presence and touchpoints to support measurable growth and better decisions."), deliverables: en ? ["SEO audits and strategy","Keyword research and content structure","Conversion optimisation","Digital presence strategy","Performance measurement and reporting"] : ["Auditoria e estratégia de SEO","Pesquisa de palavras-chave e estrutura de conteúdo","Optimização de conversão","Estratégia de presença digital","Medição e relatórios de desempenho"], approach: tr("Diagnóstico, prioridades, plano de acção, implementação acordada e acompanhamento por indicadores.","Assessment, priorities, action plan, agreed implementation and KPI tracking."), model: tr("Estratégia e coordenação internas. Execução de campanhas, produção especializada e análise avançada podem ser entregues com parceiros.","Strategy and coordination in-house. Campaign execution, specialist production and advanced analytics may be delivered with partners.") },
+  };
+  const principleText: Record<string, { title: string; text: string }> = {
+    "01": { title: tr("Começamos pelo problema","We start with the problem"), text: tr("Antes de recomendar tecnologia ou design, procuramos compreender o contexto, os objectivos e as restrições do negócio.","Before recommending technology or design, we seek to understand the context, goals and business constraints.") },
+    "02": { title: tr("Definimos um âmbito claro","We define a clear scope"), text: tr("Cada proposta identifica entregáveis, exclusões, responsabilidades, prazos, investimento e critérios de aceitação.","Every proposal defines deliverables, exclusions, responsibilities, timelines, investment and acceptance criteria.") },
+    "03": { title: tr("Montamos a equipa certa","We build the right team"), text: tr("O núcleo da Onésimo Digital coordena cada projecto e envolve especialistas externos quando o âmbito o exige.","The Onésimo Digital core team coordinates each project and brings in external specialists when the scope requires it.") },
+    "04": { title: tr("Validamos antes de entregar","We validate before delivery"), text: tr("Testes, revisão e comunicação fazem parte do processo. Não tratamos uma entrega como concluída sem validação.","Testing, review and communication are part of the process. We do not consider a delivery complete without validation.") },
+  };
   return (
     <>
       <SiteHeader />
@@ -101,19 +107,19 @@ export default function ServicesPage() {
               {serviceLines.map((service) => (
                 <article id={service.id} key={service.id} className="service-detail-card gold-border grid gap-8 p-7 sm:p-10 lg:grid-cols-[.78fr_1.22fr]">
                   <div>
-                    <p className="text-[10px] tracking-[.2em] text-[#d6b56d]">{service.number} / 04 — {service.name.toUpperCase()}</p>
-                    <h3 className="mt-6 text-3xl font-medium leading-tight tracking-[-.055em] sm:text-4xl">{service.title}</h3>
-                    <p className="mt-5 text-sm leading-7 text-white/50">{service.description}</p>
-                    <Link href="/#contacto" className="mt-8 inline-flex items-center gap-3 text-[10px] font-bold tracking-[.16em] text-[#d6b56d]">FALAR SOBRE ESTA ÁREA <span aria-hidden="true">↗</span></Link>
+                    <p className="text-[10px] tracking-[.2em] text-[#d6b56d]">{service.number} / 04 — {serviceText[service.id].name.toUpperCase()}</p>
+                    <h3 className="mt-6 text-3xl font-medium leading-tight tracking-[-.055em] sm:text-4xl">{serviceText[service.id].title}</h3>
+                    <p className="mt-5 text-sm leading-7 text-white/50">{serviceText[service.id].description}</p>
+                    <Link href="/#contacto" className="mt-8 inline-flex items-center gap-3 text-[10px] font-bold tracking-[.16em] text-[#d6b56d]">{tr("FALAR SOBRE ESTA ÁREA","DISCUSS THIS SERVICE")} <span aria-hidden="true">↗</span></Link>
                   </div>
                   <div className="grid gap-7 sm:grid-cols-2">
                     <div>
                       <h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("SERVIÇOS E ENTREGÁVEIS","SERVICES AND DELIVERABLES")}</h4>
-                      <ul className="mt-4 space-y-3">{service.deliverables.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-white/55"><span className="text-[#d6b56d]">—</span>{item}</li>)}</ul>
+                      <ul className="mt-4 space-y-3">{serviceText[service.id].deliverables.map((item) => <li key={item} className="flex gap-3 text-sm leading-6 text-white/55"><span className="text-[#d6b56d]">—</span>{item}</li>)}</ul>
                     </div>
                     <div className="space-y-7">
-                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("ABORDAGEM","APPROACH")}</h4><p className="mt-4 text-sm leading-7 text-white/55">{service.approach}</p></div>
-                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("MODELO","MODEL")} DE EXECUÇÃO</h4><p className="mt-4 text-sm leading-7 text-white/55">{service.model}</p></div>
+                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("ABORDAGEM","APPROACH")}</h4><p className="mt-4 text-sm leading-7 text-white/55">{serviceText[service.id].approach}</p></div>
+                      <div><h4 className="text-[10px] font-bold tracking-[.18em] text-white/75">{tr("MODELO","MODEL")} DE EXECUÇÃO</h4><p className="mt-4 text-sm leading-7 text-white/55">{serviceText[service.id].model}</p></div>
                     </div>
                   </div>
                 </article>
@@ -127,7 +133,7 @@ export default function ServicesPage() {
             <SectionLabel>02 / {tr("COMO TRABALHAMOS","HOW WE WORK")}</SectionLabel>
             <h2 className="section-heading mt-6">{tr("Um processo claro. ","A clear process. ")}<span className="gold-text">{tr("Do primeiro diálogo à entrega.","From first conversation to delivery.")}</span></h2>
             <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
-              {principles.map((item) => <article key={item.number} className="border-t border-[#d6b56d]/35 pt-5"><p className="text-[10px] tracking-[.18em] text-[#d6b56d]">{item.number}</p><h3 className="mt-5 text-xl tracking-[-.04em]">{item.title}</h3><p className="mt-4 text-sm leading-7 text-white/45">{item.text}</p></article>)}
+              {principles.map((item) => <article key={item.number} className="border-t border-[#d6b56d]/35 pt-5"><p className="text-[10px] tracking-[.18em] text-[#d6b56d]">{item.number}</p><h3 className="mt-5 text-xl tracking-[-.04em]">{principleText[item.number].title}</h3><p className="mt-4 text-sm leading-7 text-white/45">{principleText[item.number].text}</p></article>)}
             </div>
           </div>
         </section>
