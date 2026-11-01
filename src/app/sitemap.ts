@@ -3,7 +3,6 @@ import type { MetadataRoute } from "next";
 const siteUrl = "https://onesimo-digital.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-11-02");
   const routes = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
     { path: "/servicos", priority: 0.9, changeFrequency: "monthly" as const },
@@ -19,8 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return routes.map(({ path, priority, changeFrequency }) => ({
-    url: `${siteUrl}${path || "/" }`,
-    lastModified,
+    url: `${siteUrl}${path || "/"}`,
     changeFrequency,
     priority,
   }));
