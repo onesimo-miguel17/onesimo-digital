@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { useLanguage } from "@/components/language-provider";
 
@@ -71,7 +72,7 @@ export function LeadForm() {
       <div aria-hidden="true" className="hidden"><label htmlFor="lead-website">{tr("Não preencher este campo","Leave this field empty")}</label><input id="lead-website" name="website" type="text" tabIndex={-1} autoComplete="off" /></div>
       {status !== "idle" && feedback && <p role="status" aria-live="polite" className={status === "error" ? "lead-status lead-status-error" : "lead-status"}>{status === "sending" ? tr("A enviar o seu pedido...","Sending your request...") : feedback}</p>}
       <button className="lead-submit w-full" type="submit" disabled={status === "sending"}>{status === "sending" ? tr("A enviar...","Sending...") : tr("Enviar pedido de orçamento","Send project enquiry")}<span aria-hidden="true">↗</span></button>
-      <p className="lead-privacy">{tr("Ao enviar, autoriza a Onésimo Digital a utilizar estes dados para analisar e responder ao seu pedido.","By submitting, you authorise Onésimo Digital to use this information to review and respond to your enquiry.")}</p>
+      <p className="lead-privacy">{tr("Ao enviar, confirma que leu a nossa ","By submitting, you confirm that you have read our ")}<Link href="/privacidade" className="text-[#d6b56d] underline underline-offset-4">{tr("Política de Privacidade","Privacy Policy")}</Link>{tr(" e compreende que os dados serão utilizados para analisar e responder ao seu pedido."," and understand that your information will be used to review and respond to your enquiry.")}</p>
     </form>
   );
 }
