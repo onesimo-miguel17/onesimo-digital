@@ -17,7 +17,7 @@ export function LeadForm() {
     const payload = Object.fromEntries(formData.entries());
 
     setStatus("sending");
-    setFeedback("");
+    setFeedback("A enviar o seu pedido...");
 
     try {
       const response = await fetch("/api/contact", {
