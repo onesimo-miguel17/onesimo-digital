@@ -168,3 +168,27 @@ button { font: inherit; }
   border-color: rgba(214,181,109,.72);
   box-shadow: 0 0 35px rgba(214,181,109,.07);
 }
+
+
+/* Lead capture form */
+.lead-form { display: grid; gap: 18px; }
+.lead-form-grid { display: grid; gap: 16px; }
+.lead-field { display: grid; gap: 8px; }
+.lead-field label { color: rgba(255,255,255,.68); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.lead-field input, .lead-field select, .lead-field textarea {
+  width: 100%; min-height: 48px; border: 1px solid rgba(255,255,255,.14);
+  border-radius: 0; outline: none; background: rgba(0,0,0,.22); padding: 12px 14px;
+  color: #f5f3ee; font: inherit; font-size: 13px; transition: border-color .2s, background .2s;
+}
+.lead-field textarea { min-height: 126px; resize: vertical; }
+.lead-field input::placeholder, .lead-field textarea::placeholder { color: rgba(255,255,255,.28); }
+.lead-field select:invalid { color: rgba(255,255,255,.38); }
+.lead-field select option { color: #f5f3ee; background: #101010; }
+.lead-field input:focus, .lead-field select:focus, .lead-field textarea:focus { border-color: rgba(214,181,109,.75); background: rgba(214,181,109,.035); }
+.lead-submit { display: inline-flex; min-height: 54px; align-items: center; justify-content: center; gap: 12px; border: 1px solid var(--gold); background: linear-gradient(110deg,#d6b56d,#f0d69a); padding: 0 22px; color: #0a0907; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; transition: transform .2s, opacity .2s, background .2s; }
+.lead-submit:hover:not(:disabled) { transform: translateY(-2px); background: #f4dfad; }
+.lead-submit:disabled { cursor: wait; opacity: .65; }
+.lead-status { border-left: 2px solid var(--gold); background: rgba(214,181,109,.07); padding: 12px 14px; color: #e7ca8a; font-size: 12px; line-height: 1.6; }
+.lead-status-error { border-color: #d87979; background: rgba(180,65,65,.08); color: #f0aaaa; }
+.lead-privacy { color: rgba(255,255,255,.35); font-size: 10px; line-height: 1.6; }
+@media (min-width: 640px) { .lead-form-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
