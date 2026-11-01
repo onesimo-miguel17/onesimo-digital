@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SectionLabel } from "@/components/section-label";
 import { LeadForm } from "@/components/lead-form";
@@ -7,11 +8,6 @@ const services = [
   { number: "02", title: "Branding & Identidade", description: "Sistemas de marca consistentes que comunicam valor, personalidade e confiança.", tags: "ESTRATÉGIA · IDENTIDADE VISUAL", symbol: "✳" },
   { number: "03", title: "Marketing Digital", description: "Presença digital inteligente para atrair as pessoas certas e acelerar o crescimento.", tags: "SEO · CONTEÚDO · PERFORMANCE", symbol: "◎" },
   { number: "04", title: "Soluções Tecnológicas", description: "Automação e ferramentas digitais desenhadas à medida dos desafios do negócio.", tags: "AUTOMAÇÃO · SOFTWARE · INTEGRAÇÃO", symbol: "⌘" },
-];
-
-const projects = [
-  { number: "01", name: "Digital Commerce", type: "ECOMMERCE EXPERIENCE", className: "commerce-art", mark: "Nº 01", description: "Uma experiência de comércio digital construída para converter." },
-  { number: "02", name: "Brand Universe", type: "BRAND & DIGITAL IDENTITY", className: "universe-art", mark: "FORM / FUNCTION", description: "Um universo visual coerente, distinto e memorável." },
 ];
 
 function Arrow() {
@@ -106,9 +102,19 @@ export default function Home() {
         </section>
 
         <section id="projectos" className="section-space projects-section">
-          <div className="container-shell"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><SectionLabel>03 / Selecção de trabalho</SectionLabel><h2 className="section-heading mt-6">Ideias que ganham <span className="gold-text">forma.</span></h2></div><p className="max-w-[300px] text-sm leading-7 text-white/50">O nosso portefólio está a ganhar forma. Estes são conceitos visuais que representam a direcção criativa do estúdio.</p></div>
-            <div className="mt-14 grid gap-7 md:grid-cols-2">{projects.map((project) => <article key={project.number} className="project-card group"><div className={`project-visual ${project.className} flex aspect-[1.28] items-center justify-center`}><div className="project-frame" /><div className="project-orbit" /><div className="relative z-10 text-center"><span className="text-[9px] tracking-[.35em] text-[#f0d69a]/80">{project.mark}</span><div className="project-wordmark my-5">{project.number === "01" ? "FORM." : "AURA."}</div><span className="text-[8px] tracking-[.3em] text-white/50">CONCEPT STUDY — ONÉSIMO DIGITAL</span></div><span className="project-corner">{project.number}</span></div><div className="mt-5 flex items-start justify-between gap-4"><div><p className="text-[9px] tracking-[.2em] text-[#d6b56d]">{project.type}</p><h3 className="mt-2 text-xl">{project.name}</h3><p className="mt-2 text-sm text-white/45">{project.description}</p></div><span className="text-sm text-white/35 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#d6b56d]">↗</span></div></article>)}</div>
-            <p className="mt-10 text-[10px] tracking-wide text-white/35">* Projectos apresentados como estudos de conceito, não como trabalhos realizados para clientes.</p>
+          <div className="container-shell">
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div><SectionLabel>03 / Concept Lab</SectionLabel><h2 className="section-heading mt-6">Ideias que ganham <span className="gold-text">vida.</span></h2></div>
+              <p className="max-w-[330px] text-sm leading-7 text-white/50">Não mostramos apenas imagens. Explore demonstrações interactivas que revelam como pensamos, desenhamos e construímos produtos digitais.</p>
+            </div>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              <Link href="/projectos/form" className="project-card group block"><div className="project-visual commerce-art flex aspect-[1.28] items-center justify-center"><div className="project-frame" /><div className="project-orbit" /><div className="relative z-10 text-center"><span className="text-[9px] tracking-[.35em] text-[#f0d69a]/80">01 / DIGITAL COMMERCE</span><div className="project-wordmark my-5">FORM.</div><span className="text-[8px] tracking-[.3em] text-white/50">INTERACTIVE DEMO ↗</span></div></div><h3 className="mt-5 text-xl">FORM. — Digital Commerce</h3><p className="mt-2 text-sm text-white/45">Loja conceptual com catálogo, filtros e carrinho interactivo.</p></Link>
+              <Link href="/projectos/nexus" className="project-card group block"><div className="project-visual flex aspect-[1.28] items-center justify-center bg-[radial-gradient(ellipse_at_50%_45%,rgba(70,130,120,.24),transparent_45%),linear-gradient(135deg,#172421,#080b0a)]"><div className="project-frame" /><div className="relative z-10 text-center"><span className="text-[9px] tracking-[.35em] text-[#b7d8cb]/80">02 / BUSINESS INTELLIGENCE</span><div className="project-wordmark my-5">NEXUS</div><span className="text-[8px] tracking-[.3em] text-white/50">INTERACTIVE DASHBOARD ↗</span></div></div><h3 className="mt-5 text-xl">NEXUS — Business Intelligence</h3><p className="mt-2 text-sm text-white/45">Painel demonstrativo de vendas, clientes e desempenho.</p></Link>
+              <Link href="/projectos/cliniq" className="project-card group block"><div className="project-visual flex aspect-[1.28] items-center justify-center bg-[radial-gradient(ellipse_at_50%_45%,rgba(180,145,145,.2),transparent_45%),linear-gradient(135deg,#292020,#0b0808)]"><div className="project-frame" /><div className="relative z-10 text-center"><span className="text-[9px] tracking-[.35em] text-[#edc9c9]/80">03 / SMART BOOKING</span><div className="project-wordmark my-5">CLINIQ</div><span className="text-[8px] tracking-[.3em] text-white/50">BOOKING EXPERIENCE ↗</span></div></div><h3 className="mt-5 text-xl">CLINIQ — Smart Booking</h3><p className="mt-2 text-sm text-white/45">Fluxo de marcação online e selecção de horários.</p></Link>
+              <Link href="/projectos/aura" className="project-card group block"><div className="project-visual universe-art flex aspect-[1.28] items-center justify-center"><div className="project-frame" /><div className="project-orbit" /><div className="relative z-10 text-center"><span className="text-[9px] tracking-[.35em] text-[#f0d69a]/80">04 / BRAND EXPERIENCE</span><div className="project-wordmark my-5">AURA.</div><span className="text-[8px] tracking-[.3em] text-white/50">INTERACTIVE BRAND STUDY ↗</span></div></div><h3 className="mt-5 text-xl">AURA. — Brand Experience</h3><p className="mt-2 text-sm text-white/45">Sistema de identidade, paleta, tipografia e aplicações.</p></Link>
+            </div>
+            <div className="mt-10 text-center"><Link href="/projectos" className="secondary-button group">Explorar o Concept Lab <Arrow /></Link></div>
+            <p className="mt-8 text-[10px] tracking-wide text-white/35">* Estudos de conceito com dados fictícios. Não representam trabalhos realizados para clientes.</p>
           </div>
         </section>
 
