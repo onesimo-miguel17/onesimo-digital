@@ -4,28 +4,70 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@/components/google-analytics";
 
+const siteUrl = "https://onesimo-digital.vercel.app";
+
 export const metadata: Metadata = {
-  title: { default: "Onésimo Digital — Estúdio de Tecnologia Digital", template: "%s | Onésimo Digital" },
-  description: "Estratégia, design e tecnologia para transformar ideias em soluções digitais úteis.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Onésimo Digital | Estúdio de Tecnologia Digital em Luanda",
+    template: "%s | Onésimo Digital",
+  },
+  description:
+    "Estúdio independente de tecnologia digital em Luanda. Estratégia, design, desenvolvimento web e soluções digitais para negócios.",
   applicationName: "Onésimo Digital",
-  keywords: ["Onésimo Digital", "Agência digital Angola", "Desenvolvimento web", "Identidade visual", "Tecnologia"],
+  keywords: [
+    "Onésimo Digital",
+    "estúdio digital Luanda",
+    "desenvolvimento web Angola",
+    "websites empresariais",
+    "identidade visual",
+    "SEO",
+    "soluções tecnológicas",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Onésimo Digital — Tecnologia com propósito.",
-    description: "Estratégia, design e tecnologia para construir o próximo capítulo da sua marca.",
-    type: "website", locale: "pt_AO",
+    title: "Onésimo Digital | Estúdio de Tecnologia Digital em Luanda",
+    description:
+      "Estratégia, design e tecnologia para transformar desafios de negócio em soluções digitais úteis.",
+    url: siteUrl,
+    siteName: "Onésimo Digital",
+    type: "website",
+    locale: "pt_AO",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Onésimo Digital | Estúdio de Tecnologia Digital em Luanda",
+    description:
+      "Estratégia, design e tecnologia para negócios que querem avançar.",
   },
 };
 export const viewport: Viewport = { themeColor: "#080808", colorScheme: "dark" };
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-  <html lang="pt-AO" data-scroll-behavior="smooth">
-    <body>
-      <LanguageProvider>
-        {children}
-        <GoogleAnalytics />
-      </LanguageProvider>
-      <Analytics />
-    </body>
-  </html>
-);
+    <html lang="pt-AO" data-scroll-behavior="smooth">
+      <body>
+        <LanguageProvider>
+          {children}
+          <GoogleAnalytics />
+        </LanguageProvider>
+        <Analytics />
+      </body>
+    </html>
+  );
 }
