@@ -42,3 +42,23 @@ The homepage quote form sends submissions through the server-side Resend API. Th
 | `CONTACT_EMAIL` | Inbox that receives quote requests. Defaults to the founder's current official Gmail address. |
 
 The form is not considered live until the server environment contains a valid API key and sender identity. Missing configuration is reported to the visitor without pretending the request was delivered.
+
+
+## Privacy-conscious audience and conversion analytics
+
+The site keeps Vercel Web Analytics for aggregated page-view reporting and supports Google Analytics 4 for consent-based conversion measurement.
+
+1. Create a Google Analytics 4 property and a Web data stream for the production website.
+2. Copy the Measurement ID (format: `G-XXXXXXXXXX`).
+3. Add `NEXT_PUBLIC_GA_MEASUREMENT_ID` to the Vercel **Production** environment only, then redeploy.
+4. The Google tag is not loaded until a visitor accepts analytics in the consent notice. Rejection does not block the site or contact form.
+5. Visitors can reopen the analytics preferences from the Privacy Policy page and withdraw consent.
+
+Tracked events:
+- `quote_cta_click`: quote CTA location (hero, approach, closing section or header).
+- `select_service`: selected service category.
+- `generate_lead`: successful contact-form submission, with service category only.
+- `view_demo`: selected concept demo slug.
+- `view_all_demos`: click to open the demos index.
+
+Do not add names, email addresses, phone numbers, company names, free-text messages or other personal information to analytics event parameters. Keep the Measurement ID public; it is not a secret API key.
