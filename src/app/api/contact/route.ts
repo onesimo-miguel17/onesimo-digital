@@ -65,6 +65,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Pedido inválido." }, { status: 400 });
   }
 
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
+    return NextResponse.json({ error: "Pedido inválido." }, { status: 400 });
+  }
+
   // Honeypot: bots that fill this field receive a neutral success response.
   if (clean(body.website, 200)) {
     return NextResponse.json({ success: true });
