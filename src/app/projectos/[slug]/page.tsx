@@ -36,7 +36,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   if (!slugs.includes(slug as Slug)) {
-    return { title: "Projecto não encontrado | Onésimo Digital", robots: { index: false, follow: false } };
+    return {
+      title: "Projecto não encontrado | Onésimo Digital",
+      description: "A demonstração solicitada não existe.",
+      robots: { index: false, follow: false },
+      alternates: {},
+      openGraph: {
+        title: "Projecto não encontrado | Onésimo Digital",
+        description: "A demonstração solicitada não existe.",
+      },
+    };
   }
 
   const project = projectMetadata[slug as Slug];
