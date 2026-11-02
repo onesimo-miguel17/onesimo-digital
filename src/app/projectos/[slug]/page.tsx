@@ -35,10 +35,27 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  if (!slugs.includes(slug as Slug)) return { title: "Projecto não encontrado | Onésimo Digital" };
+  if (!slugs.includes(slug as Slug)) {
+    return {
+      title: "Projecto não encontrado | Onésimo Digital",
+      description: "A demonstração solicitada não existe.",
+      robots: { index: false, follow: false },
+      alternates: {},
+      openGraph: {
+        title: "Projecto não encontrado | Onésimo Digital",
+        description: "A demonstração solicitada não existe.",
+      },
+    };
+  }
 
   const project = projectMetadata[slug as Slug];
   const canonical = `/projectos/${slug}`;
+  const socialImage = {
+    url: "/opengraph-image",
+    width: 1200,
+    height: 630,
+    alt: `${project.title} | Onésimo Digital`,
+  };
 
   return {
     title: project.title,
@@ -48,7 +65,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${project.title} | Onésimo Digital`,
       description: project.description,
       url: canonical,
+      siteName: "Onésimo Digital",
       type: "website",
+      locale: "pt_AO",
+      images: [socialImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Onésimo Digital`,
+      description: project.description,
+      images: ["/twitter-image"],
     },
   };
 }
