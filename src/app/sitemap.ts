@@ -11,10 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contactos", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/privacidade", priority: 0.3, changeFrequency: "yearly" as const },
     { path: "/termos", priority: 0.3, changeFrequency: "yearly" as const },
-    { path: "/projectos/form", priority: 0.6, changeFrequency: "monthly" as const },
-    { path: "/projectos/nexus", priority: 0.6, changeFrequency: "monthly" as const },
-    { path: "/projectos/cliniq", priority: 0.6, changeFrequency: "monthly" as const },
-    { path: "/projectos/aura", priority: 0.6, changeFrequency: "monthly" as const },
+    { path: "/projectos/compra-certa", priority: 0.6, changeFrequency: "monthly" as const },
+    { path: "/projectos/meu-negocio", priority: 0.6, changeFrequency: "monthly" as const },
+    { path: "/projectos/marque-ja", priority: 0.6, changeFrequency: "monthly" as const },
+    { path: "/projectos/minha-marca", priority: 0.6, changeFrequency: "monthly" as const },
   ];
 
   return routes.map(({ path, priority, changeFrequency }) => ({
