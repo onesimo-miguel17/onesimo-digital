@@ -3,26 +3,26 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { DemoExperience } from "@/components/demo-experience";
 
-const slugs = ["form", "nexus", "cliniq", "aura"] as const;
+const slugs = ["compra-certa", "meu-negocio", "marque-ja", "minha-marca"] as const;
 type Slug = (typeof slugs)[number];
 
 const projectMetadata: Record<Slug, { title: string; description: string }> = {
-  form: {
+  "compra-certa": {
     title: "Compra Certa — Demonstração de Comércio Digital",
     description:
       "Explore uma demonstração conceptual de comércio digital com catálogo, pesquisa, filtros e carrinho. Produtos e dados apresentados são ilustrativos.",
   },
-  nexus: {
+  "meu-negocio": {
     title: "Meu Negócio — Demonstração de Gestão Empresarial",
     description:
       "Explore uma demonstração conceptual de gestão empresarial com indicadores, clientes, vendas e actividade. Todos os dados são fictícios.",
   },
-  cliniq: {
+  "marque-ja": {
     title: "Marque Já — Demonstração de Marcações Online",
     description:
       "Explore uma demonstração ilustrativa de marcações online com serviços, profissionais e horários. Não constitui um sistema clínico ou de reservas em produção.",
   },
-  aura: {
+  "minha-marca": {
     title: "Minha Marca — Demonstração de Identidade Visual",
     description:
       "Explore um conceito demonstrativo de identidade visual, incluindo cores, tipografia e aplicações de marca.",
