@@ -54,13 +54,44 @@ export async function POST(request: Request) {
   }
 
   const contentLength = Number(request.headers.get("content-length") ?? 0);
-  if (contentLength > 16_000) {
+  if (Number.isFinite(contentLength) && contentLength > 16_000) {
     return NextResponse.json({ error: "O pedido excede o tamanho permitido." }, { status: 413 });
   }
 
   let body: LeadPayload;
   try {
-    body = (await request.json()) as LeadPayload;
+    if (!request.body) {
+      return NextResponse.json({ error: "Pedido inválido." }, { status: 400 });
+    }
+
+    const reader = request.body.getReader();
+    const chunks: Uint8Array[] = [];
+    let totalBytes = 0;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      totalBytes += value.byteLength;
+      if (totalBytes > 16_000) {
+        await reader.cancel();
+        return NextResponse.json(
+          { error: "O pedido excede o tamanho permitido." },
+          { status: 413 },
+        );
+      }
+
+      chunks.push(value);
+    }
+
+    const payload = new Uint8Array(totalBytes);
+    let offset = 0;
+    for (const chunk of chunks) {
+      payload.set(chunk, offset);
+      offset += chunk.byteLength;
+    }
+
+    body = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(payload)) as LeadPayload;
   } catch {
     return NextResponse.json({ error: "Pedido inválido." }, { status: 400 });
   }
