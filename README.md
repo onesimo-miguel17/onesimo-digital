@@ -37,7 +37,8 @@ The contact-page quote form sends submissions through the server-side Resend API
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical production URL used by metadata, robots and sitemap. Update it when the custom domain is connected. |\n| `RESEND_API_KEY` | Secret API key. Never expose it with a `NEXT_PUBLIC_` prefix. |
+| `NEXT_PUBLIC_SITE_URL` | Canonical production URL used by metadata, robots and sitemap. Update it when the custom domain is connected. |
+| `RESEND_API_KEY` | Secret API key. Never expose it with a `NEXT_PUBLIC_` prefix. |
 | `RESEND_FROM_EMAIL` | Sender identity accepted by Resend. The onboarding sender is suitable only for initial testing; verify a domain for production. |
 | `CONTACT_EMAIL` | Inbox that receives quote requests. Defaults to the founder's current official Gmail address. |
 
