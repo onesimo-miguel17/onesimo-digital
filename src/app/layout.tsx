@@ -4,7 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@/components/google-analytics";
 
-const siteUrl = "https://onesimo-digital.vercel.app";
+import { siteUrl } from "@/lib/site-url";
 const socialImage = {
   url: "/opengraph-image",
   width: 1200,

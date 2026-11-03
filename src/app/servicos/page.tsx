@@ -92,7 +92,7 @@ export default function ServicesPage() {
             </div>
             <div className="mt-16 grid gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
               <div><p className="meta-label">{tr("MODELO","MODEL")}</p><p className="mt-2 text-sm text-white/75">{tr("Núcleo interno + especialistas","Core team + specialists")}</p></div>
-              <div><p className="meta-label">{tr("MERCADO","MARKET")}</p><p className="mt-2 text-sm text-white/75">{tr("Angola e internacional","Angola and international")}</p></div>
+              <div><p className="meta-label">{tr("MERCADO","MARKET")}</p><p className="mt-2 text-sm text-white/75">{tr("Mercado internacional, com base em Luanda","International market, based in Luanda")}</p></div>
               <div><p className="meta-label">{tr("ABORDAGEM","APPROACH")}</p><p className="mt-2 text-sm text-white/75">{tr("Âmbito definido por projecto","Project-defined scope")}</p></div>
             </div>
           </div>

@@ -53,7 +53,7 @@ export default function AboutPage() {
             </div>
             <div className="mt-16 grid gap-5 border-t border-white/10 pt-6 sm:grid-cols-3">
               <div><p className="meta-label">{tr("BASE","BASED IN")}</p><p className="mt-2 text-sm text-white/75">Luanda, Angola</p></div>
-              <div><p className="meta-label">{tr("ALCANCE","REACH")}</p><p className="mt-2 text-sm text-white/75">{tr("Angola e mercado internacional","Angola and international markets")}</p></div>
+              <div><p className="meta-label">{tr("ALCANCE","REACH")}</p><p className="mt-2 text-sm text-white/75">{tr("Mercado internacional, com base em Luanda","International market, based in Luanda")}</p></div>
               <div><p className="meta-label">{tr("MODELO","MODEL")}</p><p className="mt-2 text-sm text-white/75">{tr("Núcleo fundador + especialistas por projecto","Founder-led core + project specialists")}</p></div>
             </div>
           </div>
