@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     "SEO",
     "soluções tecnológicas",
   ],
+  verification: {
+    google: "DOkvxvV3K3sjWLlUFbjS6NrCxGbeOszO-ynuoGYhGVw",
+  },
   alternates: {
     canonical: "/",
   },
