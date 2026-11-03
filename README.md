@@ -2,7 +2,7 @@
 
 Premium Digital Technology Studio.
 
-A Next.js, React, TypeScript and Tailwind CSS website for Onésimo Digital, serving businesses in Angola and international markets.
+A Next.js, React, TypeScript and Tailwind CSS website for Onésimo Digital, an independent studio based in Luanda and focused on the international market.
 
 ## Stack
 - Next.js App Router
@@ -28,7 +28,7 @@ Brand identity, responsive homepage, navigation and foundational service/portfol
 
 ## Lead capture and email delivery
 
-The homepage quote form sends submissions through the server-side Resend API. The recipient defaults to the official contact inbox configured for this project.
+The contact-page quote form sends submissions through the server-side Resend API. The recipient defaults to the official contact inbox configured for this project.
 
 1. Create a Resend account and verify the account email.
 2. Generate an API key with permission to send emails.
@@ -37,7 +37,7 @@ The homepage quote form sends submissions through the server-side Resend API. Th
 
 | Variable | Purpose |
 | --- | --- |
-| `RESEND_API_KEY` | Secret API key. Never expose it with a `NEXT_PUBLIC_` prefix. |
+| `NEXT_PUBLIC_SITE_URL` | Canonical production URL used by metadata, robots and sitemap. Update it when the custom domain is connected. |\n| `RESEND_API_KEY` | Secret API key. Never expose it with a `NEXT_PUBLIC_` prefix. |
 | `RESEND_FROM_EMAIL` | Sender identity accepted by Resend. The onboarding sender is suitable only for initial testing; verify a domain for production. |
 | `CONTACT_EMAIL` | Inbox that receives quote requests. Defaults to the founder's current official Gmail address. |
 
