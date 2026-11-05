@@ -44,6 +44,15 @@ export default function ProjectsPage() {
             <p className="mt-12 border-t border-white/10 pt-6 text-[10px] leading-6 text-white/35">{tr("NOTA: Estes projectos são estudos de conceito desenvolvidos pela Onésimo Digital. Não representam clientes, encomendas ou resultados comerciais reais.","NOTE: These projects are concept studies developed by Onésimo Digital. They do not represent real clients, commissioned work or commercial results.")}</p>
           </div>
         </section>
+        <section className="cta-stage relative overflow-hidden py-24 sm:py-32">
+          <div className="cta-glow" />
+          <div className="container-shell relative text-center">
+            <SectionLabel>{tr("A SUA IDEIA / O PRÓXIMO PROJECTO","YOUR IDEA / THE NEXT PROJECT")}</SectionLabel>
+            <h2 className="section-heading mx-auto mt-7">{tr("Viu uma possibilidade? ","See a possibility? ")}<span className="gold-text">{tr("Vamos construí-la.","Let’s build it.")}</span></h2>
+            <p className="mx-auto mt-6 max-w-[560px] text-sm leading-7 text-white/50">{tr("Conte-nos o que o seu negócio precisa. Vamos avaliar o desafio e indicar a solução digital mais adequada.","Tell us what your business needs. We’ll assess the challenge and recommend the right digital solution.")}</p>
+            <Link href="/#contacto" className="primary-button mt-10">{tr("Pedir uma proposta","Request a proposal")} <span aria-hidden="true">↗</span></Link>
+          </div>
+        </section>
       </main>
       <footer className="border-t border-white/10 py-8"><div className="container-shell flex flex-col justify-between gap-4 sm:flex-row"><Link href="/" className="text-xs font-semibold tracking-[.13em]">ONÉSIMO <span className="text-[#d6b56d]">DIGITAL.</span></Link><p className="text-[10px] text-white/35">© {new Date().getFullYear()} Onésimo Digital. {tr("Demonstrações de produto.","Product demos.")}</p></div></footer>
     </>
