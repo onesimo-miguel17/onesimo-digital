@@ -8,22 +8,22 @@ type Slug = (typeof slugs)[number];
 
 const projectMetadata: Record<Slug, { title: string; description: string }> = {
   "compra-certa": {
-    title: "Compra Certa — Demonstração de Comércio Digital",
+    title: "VITRINE — Demonstração de Comércio Digital",
     description:
       "Explore uma demonstração conceptual de comércio digital com catálogo, pesquisa, filtros e carrinho. Produtos e dados apresentados são ilustrativos.",
   },
   "meu-negocio": {
-    title: "Meu Negócio — Demonstração de Gestão Empresarial",
+    title: "PULSO — Demonstração de Gestão Empresarial",
     description:
       "Explore uma demonstração conceptual de gestão empresarial com indicadores, clientes, vendas e actividade. Todos os dados são fictícios.",
   },
   "marque-ja": {
-    title: "Marque Já — Demonstração de Marcações Online",
+    title: "AGENDA — Demonstração de Marcações Online",
     description:
       "Explore uma demonstração ilustrativa de marcações online com serviços, profissionais e horários. Não constitui um sistema clínico ou de reservas em produção.",
   },
   "minha-marca": {
-    title: "Minha Marca — Demonstração de Identidade Visual",
+    title: "TRAÇO — Demonstração de Identidade Visual",
     description:
       "Explore um conceito demonstrativo de identidade visual, incluindo cores, tipografia e aplicações de marca.",
   },
