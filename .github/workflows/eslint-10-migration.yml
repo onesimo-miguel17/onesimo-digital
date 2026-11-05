@@ -1,4 +1,5 @@
 name: ESLint 10 dependency migration
+# Temporary maintenance workflow; remove after lockfile generation.
 
 on:
   push:
