@@ -15,11 +15,11 @@ const socialImage = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Onésimo Digital | Estúdio de Tecnologia Digital em Luanda",
+    default: "Onésimo Digital | Websites, Branding e Soluções Digitais",
     template: "%s | Onésimo Digital",
   },
   description:
-    "Estúdio independente de tecnologia digital em Luanda. Estratégia, design, desenvolvimento web e soluções digitais para negócios.",
+    "Criamos websites empresariais, lojas online, identidades visuais, plataformas de gestão e automações para negócios. Estratégia, design e tecnologia com base em Luanda.",
   applicationName: "Onésimo Digital",
   keywords: [
     "Onésimo Digital",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Onésimo Digital | Estúdio de Tecnologia Digital em Luanda",
+    title: "Onésimo Digital | Websites, Branding e Soluções Digitais",
     description:
-      "Estratégia, design e tecnologia para transformar desafios de negócio em soluções digitais úteis.",
+      "Websites, lojas online, branding e software à medida para negócios. Conheça os serviços da Onésimo Digital.",
     url: siteUrl,
     siteName: "Onésimo Digital",
     type: "website",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Onésimo Digital | Estúdio de Tecnologia Digital em Luanda",
+    title: "Onésimo Digital | Websites, Branding e Soluções Digitais",
     description:
-      "Estratégia, design e tecnologia para negócios que querem avançar.",
+      "Websites, e-commerce, identidade visual, plataformas empresariais e automação.",
     images: ["/twitter-image"],
   },
 };
