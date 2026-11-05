@@ -48,18 +48,18 @@ O formulário não deve ser descrito como uma base de dados: a implementação a
 
 ## 4. Conservação e eliminação — pedidos não convertidos
 
-A Política de Privacidade estabelece um prazo máximo de **12 meses após a última interacção relacionada com o pedido**, para pedidos que não resultem numa contratação, salvo obrigação legal ou necessidade de declaração, exercício ou defesa de direitos.
+A Política de Privacidade pública actualmente publicada **não estabelece um prazo numérico de conservação**. Para pedidos que não resultem numa contratação, propõe-se um prazo máximo de **12 meses após a última interacção substantiva**, salvo obrigação legal ou necessidade de declaração, exercício ou defesa de direitos. Esta proposta carece de aprovação do responsável, validação jurídica e actualização coerente da política pública antes de ser apresentada como prazo adoptado.
 
 Procedimento operacional proposto:
 1. A cada trimestre, rever a caixa de correio operacional e identificar pedidos que não avançaram para contratação.
 2. Considerar como referência a data da última interacção substantiva, e não apenas a data de recepção inicial.
-3. Eliminar ou anonimizar as conversas quando se completar o prazo de 12 meses, salvo excepção documentada.
+3. Após aprovação formal do prazo proposto e actualização da política pública, eliminar ou anonimizar as conversas quando se completar o prazo adoptado, salvo excepção documentada.
 4. Eliminar também cópias locais ou exportações desnecessárias. Verificar, quando disponível, a eliminação em ferramentas de terceiros e os respectivos prazos de retenção de cópias de segurança.
 5. Registar apenas a execução da revisão (data, período revisto, quantidade aproximada e excepções), evitando duplicar o conteúdo dos pedidos nesse registo.
 
 Pedidos que resultem em contrato devem ser separados do fluxo de pedidos não convertidos e conservados apenas durante os prazos legais e contratuais aplicáveis. Não inventar nem aplicar um prazo único sem avaliar o tipo de contrato e as obrigações relevantes.
 
-**Limitação actual:** o prazo de 12 meses está descrito na Política de Privacidade, mas não existe evidência de uma rotina automatizada de eliminação. Até existir automação validada, a revisão trimestral é uma tarefa manual a executar e registar pelo responsável.
+**Limitação actual:** a política pública não contém actualmente um prazo numérico de conservação. Os 12 meses são apenas uma proposta operacional neste documento, ainda sujeita a aprovação e validação jurídica. Também não existe evidência de uma rotina automatizada de eliminação. Até à aprovação do prazo e à implementação de um controlo validado, não apresentar os 12 meses como política em vigor. A revisão trimestral é uma tarefa manual proposta, a executar e registar apenas após aprovação.
 
 ## 5. Pedidos dos titulares
 
@@ -89,7 +89,7 @@ Este procedimento não fixa um prazo legal de notificação de incidentes. Essa 
 | Identidade e endereço do responsável | Parcial — endereço de correspondência indicado como Luanda, Angola | Confirmar requisitos formais aplicáveis; não publicar endereço residencial sem decisão expressa |
 | Notificação/registo junto da APD ou eventual dispensa | Pendente de esclarecimento | Resposta escrita da APD ou parecer jurídico |
 | Transferências internacionais | Pendente | Regiões, DPA, subcontratantes e mecanismo jurídico por fornecedor |
-| Retenção de Vercel, Resend e Gmail | Pendente | Configurações e documentação dos fornecedores |
+| Prazo de conservação dos pedidos | Pendente — proposta de 12 meses por aprovar | Decisão formal, política pública actualizada e registo de execução |
 | Rotina de revisão trimestral | A implementar | Registo de cada revisão e eliminação |
 | Google Analytics 4 | Condicionado a consentimento e configuração | Teste técnico de rejeição/aceitação e verificação de eventos |
 | Vercel Web Analytics | Configuração a confirmar | Documentação e teste do comportamento efectivo |
