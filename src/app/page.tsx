@@ -16,10 +16,10 @@ export default function Home() {
   const en = language === "en";
   const tr = (pt: string, english: string) => en ? english : pt;
   const services = [
-    { number: "01", title: tr("Websites e Plataformas","Websites & Platforms"), description: tr("Experiências digitais rápidas, intuitivas e preparadas para transformar visitantes em clientes.","Fast, intuitive digital experiences designed to turn visitors into customers."), tags: tr("DESIGN WEB · DESENVOLVIMENTO","WEB DESIGN · DEVELOPMENT"), symbol: "↗" },
-    { number: "02", title: tr("Marca e Identidade","Branding & Identity"), description: tr("Sistemas de marca consistentes que comunicam valor, personalidade e confiança.","Consistent brand systems that communicate value, personality and trust."), tags: tr("ESTRATÉGIA · IDENTIDADE VISUAL","STRATEGY · VISUAL IDENTITY"), symbol: "✳" },
-    { number: "03", title: tr("Marketing Digital","Digital Marketing"), description: tr("Presença digital inteligente para atrair as pessoas certas e acelerar o crescimento.","A smart digital presence that attracts the right people and accelerates growth."), tags: tr("SEO · CONTEÚDO · DESEMPENHO","SEO · CONTENT · PERFORMANCE"), symbol: "◎" },
-    { number: "04", title: tr("Soluções Tecnológicas","Technology Solutions"), description: tr("Automação e ferramentas digitais desenhadas à medida dos desafios do negócio.","Automation and digital tools tailored to business challenges."), tags: tr("AUTOMAÇÃO · SOFTWARE · INTEGRAÇÃO","AUTOMATION · SOFTWARE · INTEGRATION"), symbol: "⌘" },
+    { number: "01", title: tr("Websites e Lojas Online","Websites & Online Stores"), description: tr("Websites institucionais, landing pages e lojas online rápidos, responsivos e preparados para gerar contactos e vendas.","Fast, responsive business websites, landing pages and online stores designed to generate enquiries and sales."), tags: tr("DESIGN WEB · DESENVOLVIMENTO","WEB DESIGN · DEVELOPMENT"), symbol: "↗" },
+    { number: "02", title: tr("Identidade Visual e Branding","Visual Identity & Branding"), description: tr("Logótipos, sistemas visuais e materiais de marca que tornam o negócio reconhecível e consistente.","Logos, visual systems and brand materials that make a business recognisable and consistent."), tags: tr("ESTRATÉGIA · IDENTIDADE VISUAL","STRATEGY · VISUAL IDENTITY"), symbol: "✳" },
+    { number: "03", title: tr("Crescimento Digital","Digital Growth"), description: tr("SEO, estratégia de conteúdo e optimização da presença digital para atrair o público certo e converter interesse em oportunidades.","SEO, content strategy and digital presence optimisation to attract the right audience and turn interest into opportunities."), tags: tr("SEO · CONTEÚDO · DESEMPENHO","SEO · CONTENT · PERFORMANCE"), symbol: "◎" },
+    { number: "04", title: tr("Software e Automação","Software & Automation"), description: tr("Plataformas de gestão, aplicações à medida, integrações e automações para simplificar operações.","Management platforms, custom applications, integrations and automations that simplify operations."), tags: tr("AUTOMAÇÃO · SOFTWARE · INTEGRAÇÃO","AUTOMATION · SOFTWARE · INTEGRATION"), symbol: "⌘" },
   ];
   return (
     <>
@@ -40,16 +40,16 @@ export default function Home() {
               </div>
               <p className="hero-overline mb-5">{tr("ESTRATÉGIA. DESIGN. TECNOLOGIA.","STRATEGY. DESIGN. TECHNOLOGY.")}</p>
               <h1 className="hero-title max-w-[850px] text-[clamp(3.8rem,8.2vw,7.8rem)] font-medium leading-[.86] tracking-[-.085em] text-[#f7f4ed]">
-                {tr("Ideias grandes.","Big ideas.")}
-                <span className="hero-title-accent block">{tr("Impacto real.","Real impact.")}</span>
-                <span className="hero-title-last block">{tr("Futuro digital.","Digital future.")}</span>
+                {tr("Websites.","Websites.")}
+                <span className="hero-title-accent block">{tr("Marcas.","Brands.")}</span>
+                <span className="hero-title-last block">{tr("Soluções digitais.","Digital solutions.")}</span>
               </h1>
               <p className="mt-9 max-w-[510px] text-[15px] leading-8 text-white/60 sm:text-base">
-                {tr("Transformamos ambição em experiências digitais extraordinárias. Criamos marcas, plataformas e soluções tecnológicas para negócios que querem avançar.","We turn ambition into outstanding digital experiences. We build brands, platforms and technology solutions for businesses ready to move forward.")}
+                {tr("Criamos websites institucionais e lojas online, desenvolvemos identidades visuais e construímos plataformas e automações para negócios. Estratégia, design e tecnologia num só parceiro.","We create business websites and online stores, develop visual identities, and build digital platforms and automations. Strategy, design and technology in one partner.")}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a href="#contacto" onClick={() => trackAnalyticsEvent("quote_cta_click", { cta_location: "hero" })} className="primary-button group">{tr("Vamos construir o próximo","Let’s build what comes next")} <Arrow /></a>
-                <a href="#servicos" className="secondary-button group">{tr("Descobrir o que fazemos","Explore our services")} <span className="transition-transform group-hover:translate-y-1">↓</span></a>
+                <a href="#contacto" onClick={() => trackAnalyticsEvent("quote_cta_click", { cta_location: "hero" })} className="primary-button group">{tr("Pedir uma proposta","Request a proposal")} <Arrow /></a>
+                <a href="#servicos" className="secondary-button group">{tr("Ver serviços","Explore services")} <span className="transition-transform group-hover:translate-y-1">↓</span></a>
               </div>
               <div className="hero-footnote mt-16 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-white/10 pt-6">
                 <div><p className="meta-label">{tr("BASE","BASED IN")}</p><p className="mt-2 text-xs text-white/80">Luanda, Angola</p></div>
