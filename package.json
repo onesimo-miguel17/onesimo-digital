@@ -20,16 +20,13 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "eslint": "^10.14.0",
+    "eslint": "^9.0.0",
     "eslint-config-next": "16.4.3",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.7.0"
   },
   "overrides": {
     "@typescript-eslint/typescript-estree": {
-      "minimatch": "11.0.1"
-    },
-    "eslint": {
       "minimatch": "11.0.1"
     }
   }
